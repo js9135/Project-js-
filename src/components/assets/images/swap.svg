@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.306" y2="1.151" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="orange"/>
+      <stop offset="1" stop-color="#ff8e53"/>
+    </linearGradient>
+  </defs>
+  <path id="Icon_material-swap-vertical-circle" data-name="Icon material-swap-vertical-circle" d="M18,3A15,15,0,1,0,33,18,15.005,15.005,0,0,0,18,3ZM9.75,13.5,15,8.25l5.25,5.25H16.5v6h-3v-6Zm16.5,9L21,27.75,15.75,22.5H19.5v-6h3v6Z" transform="translate(-3 33) rotate(-90)" fill="url(#linear-gradient)"/>
+</svg>
