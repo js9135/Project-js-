@@ -12,6 +12,10 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width : 1200px)': {
+            overflowY: 'inherit',
+            minHeight: 'auto'
+        },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -27,7 +31,16 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         padding: '2rem 1.5rem 5rem 1.5rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            marginTop: '4rem',
+            height: 'auto',
+            padding: '2rem 1.5rem 0rem 1.5rem',
+            '@media(max-width : 600px)': {
+                height: 'auto',
+                
+            }
+        }
     },
     hding: {
         fontSize: '1.5rem !important'
@@ -103,8 +116,10 @@ const CenterBar2 = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Portfolio />
                     <OpenPosition />
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import List from '@mui/material/List';
@@ -29,8 +29,7 @@ import Slider from '@mui/material/Slider';
 
 const useStyles = makeStyles({
     filterBtn: {
-        border: '1px solid #fff !important',
-        color: '#fff !important'
+        border: '1px solid #999 !important',
     },
     searchWrap: {
         display: 'flex',
@@ -38,7 +37,7 @@ const useStyles = makeStyles({
     },
     searchBar: {
         display: 'flex',
-        border: '1px solid #ffffff3b',
+        border: '1px solid #999',
         alignItems: 'center',
         borderRadius: '2rem'
     },
@@ -96,7 +95,7 @@ const useStyles = makeStyles({
         },
     },
     valueTExt: {
-        border: '1px solid #ffffff42',
+        border: '1px solid #999',
         padding: '0.5rem 2.5rem'
     }
 })
@@ -124,7 +123,8 @@ export default function OffCanvas() {
         setExpanded(isExpanded ? panel : false);
     };
 
-    const [value, setValue] = React.useState([0, 100]);
+    const [value, setValue] = useState(0)
+
 
     const handleChange2 = (e) => {
         setValue(e.target.value);
@@ -132,7 +132,7 @@ export default function OffCanvas() {
     const classes = useStyles();
     return (
         <div>
-            <Button onClick={handleClickOpen} className={classes.filterBtn} variant="outlined" startIcon={<TuneIcon />}>
+            <Button onClick={handleClickOpen} className={classes.filterBtn} sx={{ color : 'text.default'}} variant="outlined" startIcon={<TuneIcon />}>
                 Filter
             </Button>
             <Dialog
@@ -148,9 +148,9 @@ export default function OffCanvas() {
                     left: '71rem !important',
 
                     '& .MuiPaper-root': {
-                        backgroundColor: '#161616',
+                        backgroundColor: 'disBtn.default',
                         // border: '1px solid #ffa500',
-                        color: '#fff'
+                        color: 'text.default'
                     },
 
                 }}
@@ -185,7 +185,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 Search
@@ -203,7 +203,7 @@ export default function OffCanvas() {
                                         }}
                                         sx={{
                                             '& .MuiInputBase-root': {
-                                                color: '#fff',
+                                                color: 'text.default',
                                             }
                                         }}
                                     />
@@ -220,7 +220,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 My NFTs
@@ -238,7 +238,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 Collections
@@ -248,12 +248,12 @@ export default function OffCanvas() {
                             <Box>
                                 <Link className={classes.collectionsYDF}>
                                     <Typography component={'img'} src={collectionsydf} width={50} />
-                                    <Typography color={'#fff'}>sYDF Collection</Typography>
+                                    <Typography color={'text.default'}>sYDF Collection</Typography>
                                 </Link>
                                 <Box height={15} />
                                 <Link className={classes.collectionslYDF}>
                                     <Typography component={'img'} src={collectionslydf} width={50} />
-                                    <Typography color={'#fff'}>slYDF Collection</Typography>
+                                    <Typography color={'text.default'}>slYDF Collection</Typography>
                                 </Link>
                             </Box>
                         </AccordionDetails>
@@ -266,7 +266,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 Listed & Offers
@@ -285,7 +285,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 APRs
@@ -423,7 +423,7 @@ export default function OffCanvas() {
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
-                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: '#fff' } }}
+                            sx={{ minHeight: '40px !important', '& .MuiSvgIcon-root': { color: 'text.default' } }}
                         >
                             <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 700 }}>
                                 List Price (USD)

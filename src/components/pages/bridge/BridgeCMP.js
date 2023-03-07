@@ -16,6 +16,9 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width  : 1200px)':{
+overflowY : 'inherit'
+        },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -30,10 +33,16 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         paddingBottom: '1rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto'
+        }
     },
     boxMain: {
-        padding: '5rem 1.5rem 2rem 1.5rem'
+        padding: '5rem 1.5rem 2rem 1.5rem',
+        '@media(max-width : 1200px)': {
+            padding: '2rem 1.5rem 2rem 1.5rem',
+        }
     },
     switchbtn: {
         background: 'linear-gradient(45deg, #ffa500 10%, #ff8e53 90%)',
@@ -55,7 +64,10 @@ const useStyles = makeStyles({
         borderRadius: '0.6rem'
     },
     bridgeMainBox: {
-        padding: '1rem 8rem'
+        padding: '1rem 8rem',
+        '@media(max-width : 600px)': {
+            padding: '1rem 0rem'
+        }
     },
     BridgeTranfer: {
         padding: '1rem',
@@ -96,14 +108,13 @@ const useStyles = makeStyles({
     bridgeDisabledBtn: {
         padding: '0.8rem 1rem !important',
         borderRadius: '0.8rem !important',
-        backgroundColor: '#000 !important',
         color: '#9d9c9c !important'
     },
     bridgeHistoryWrap: {
         marginTop: '1.5rem'
     },
     bridgeHistoryBox: {
-        border: '1px solid #fffd0263',
+        border: '1px solid #ffba0263',
         padding: '2rem',
         borderRadius: '0.6rem',
         marginTop: '1rem',
@@ -113,7 +124,7 @@ const useStyles = makeStyles({
         width: '10rem',
         display: 'inline-block'
     },
-    
+
 })
 
 
@@ -122,34 +133,36 @@ const BridgeCMP = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Header HeaderTitle="Bridge" />
                     <Box className={classes.boxMain}>
                         <Info />
 
                         <Box className={classes.bridgeMainBox}>
-                            <Box className={classes.BridgeTopBox}>
+                            <Box className={classes.BridgeTopBox} sx={{backgroundColor : 'disBtn.default'}}>
                                 <Box><Typography variant="h6" fontWeight={700} className={classes.bridgeYDF}>Bridge YDF to Arbitrum</Typography></Box>
                                 <Box>
                                     <Button variant="contained" className={classes.switchbtn}>Switch to Arbitrum</Button>
                                 </Box>
                             </Box>
 
-                            <Box className={classes.BridgeTranfer}>
+                            <Box className={classes.BridgeTranfer} sx={{backgroundColor : 'disBtn.default'}}>
                                 <Box className={classes.BridgeAvai}>
                                     <Box className={classes.transferToAbtm}>
                                         <Box className={classes.logoBx}>
                                             <Typography component={'img'} src={logo} width={'100%'} />
                                         </Box>
                                         <Box className={classes.YDFBox}>
-                                            <Typography color={'#ffffff87'}>Transfer to Arbitrum</Typography>
-                                            <Typography color={'#fff'} fontWeight={700}>YDF</Typography>
+                                            <Typography color={'#999'}>Transfer to Arbitrum</Typography>
+                                            <Typography color={'text.default'} fontWeight={700}>YDF</Typography>
                                         </Box>
                                     </Box>
                                     <Box className={classes.YDFBox2}>
-                                        <Typography color={'#ffffff87'}>Available Balance</Typography>
-                                        <Typography color={'#fff'} fontWeight={700}>0 ($0)</Typography>
+                                        <Typography color={'#999'}>Available Balance</Typography>
+                                        <Typography color={'text.default'} fontWeight={700}>0 ($0)</Typography>
                                     </Box>
                                 </Box>
 
@@ -161,8 +174,8 @@ const BridgeCMP = () => {
                                             <Typography component={'img'} src={eth} width={'100%'} />
                                         </Box>
                                         <Box className={classes.YDFBox}>
-                                            <Typography color={'#ffffff87'}>Transfer From</Typography>
-                                            <Typography color={'#fff'} fontWeight={700}>Ethereum</Typography>
+                                            <Typography color={'#999'}>Transfer From</Typography>
+                                            <Typography color={'text.default'} fontWeight={700}>Ethereum</Typography>
                                         </Box>
                                     </Box>
 
@@ -175,24 +188,24 @@ const BridgeCMP = () => {
                                             <Typography component={'img'} src={arb} width={'100%'} />
                                         </Box>
                                         <Box className={classes.YDFBox}>
-                                            <Typography color={'#ffffff87'}>Transfer To</Typography>
-                                            <Typography color={'#fff'} fontWeight={700}>Arbitrum</Typography>
+                                            <Typography color={'#999'}>Transfer To</Typography>
+                                            <Typography color={'text.default'} fontWeight={700}>Arbitrum</Typography>
                                         </Box>
                                     </Box>
                                 </Box>
                                 <Box className={classes.bridgeDisabledBtnWrp}>
-                                    <Button className={classes.bridgeDisabledBtn} variant="contained" fullWidth>Bridge Disabled</Button>
+                                    <Button className={classes.bridgeDisabledBtn} sx={{backgroundColor : 'bg.default','&:hover':{backgroundColor : 'bg.default'}}} variant="contained" fullWidth>Bridge Disabled</Button>
                                 </Box>
                             </Box>
                         </Box>
                         <Box className={classes.bridgeHistoryWrap}>
-                            <Typography fontWeight={700} color={'#fff'}>Bridge History</Typography>
+                            <Typography fontWeight={700} color={'text.default'}>Bridge History</Typography>
                             <Box className={classes.bridgeHistoryBox}>
                                 <Box className={classes.emptyBox}>
                                     <Typography component={'img'} src={empty} width={'100%'} />
                                 </Box>
                                 <Box height={20} />
-                                <Typography variant="h6" color={'#fff'}>No bridge history logged yet!</Typography>
+                                <Typography variant="h6" color={'text.default'}>No bridge history logged yet!</Typography>
 
                                 <Box height={15} />
                                 <Typography color={'#999'}>No bridge history logged yet!</Typography>

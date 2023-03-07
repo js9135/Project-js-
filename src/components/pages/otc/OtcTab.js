@@ -4,7 +4,7 @@ import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
-import { Box, Button,  styled, Typography } from '@mui/material';
+import { Box, Button, styled, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import OffCanvas from '../marketplace/OffCanvas'
 import { useAccount } from 'wagmi';
@@ -47,31 +47,30 @@ const useStyles = makeStyles({
     },
     connectwalletbtn: {
         marginRight: '1rem !important',
-        backgroundColor: '#252525 !important',
+
         padding: '0.4rem 1rem !important',
         borderRadius: '3rem !important',
-        color: '#fff !important',
-        textTransform: 'none !important'
+        color: '#999 !important',
+        textTransform: 'none !important',
+
     },
-   
+
 })
 
 
 
 const Tab = styled(TabUnstyled)`
   font-family: poppins;
-  color: #fff;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   padding: 10px 12px;
   margin: 6px 0px;
   border: none;
   border-radius: 12px;
 
   &:hover {
-    background-color: #000;
+    background-color: bg.default;
   }
 
   &:focus {
@@ -80,7 +79,7 @@ const Tab = styled(TabUnstyled)`
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: #000;
+    background-color: bg.default;
     outline: 3px solid #ffa500 ;
   }
 
@@ -117,39 +116,50 @@ export default function OtcTab() {
 
         <Box className={classes.mainBox}>
             <TabsUnstyled defaultValue={0}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <TabsList>
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>Packages</Typography>
+                <Box sx={{
+                    display: 'flex', justifyContent: 'space-between',
+                    '@media(max-width : 600px)': { display: 'inherit' }
+                }}>
+                    <TabsList sx={{ '@media(max-width : 600px)': { justifyContent: 'left' } }}>
+                        <Tab sx={{ marginRight: '1rem', backgroundColor: 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>Packages</Typography>
                         </Tab>
 
-                        <Tab>
-                            <Typography fontWeight={700}>Pools</Typography>
+                        <Tab sx={{ backgroundColor: 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>Pools</Typography>
                         </Tab>
 
                     </TabsList>
 
                     <TabPanel value={0}>
-                        <Box sx={{ display: 'flex' }}>
-                            {accountStatus.isConnected ? <Box><CreateOTCModal/></Box> : <Box><Button className={classes.connectwalletbtn} variant='contained'>Connect Wallet</Button></Box>}
+                        <Box sx={{ display: 'flex', '@media(max-width : 600px)': { marginBottom: '1rem' } }}>
+                            {accountStatus.isConnected ? <Box><CreateOTCModal /></Box> : <Box><Button className={classes.connectwalletbtn} sx={{
+                                backgroundColor: 'disBtn.default', '&:hover': {
+                                    backgroundColor: 'disBtn.default'
+                                }
+                            }} variant='contained'>Connect Wallet</Button></Box>}
                             <Box ml={2}><OffCanvas /></Box>
                         </Box>
 
                     </TabPanel>
                     <TabPanel value={1}>
-                        <Box sx={{ display: 'flex' }}>
-                            {accountStatus.isConnected ? <Box><CreateOTCModal/></Box> : <Box><Button className={classes.connectwalletbtn} variant='contained'>Connect Wallet</Button></Box>}
+                        <Box sx={{ display: 'flex', '@media(max-width : 600px)': { marginBottom: '1rem' } }}>
+                            {accountStatus.isConnected ? <Box><CreateOTCModal /></Box> : <Box><Button className={classes.connectwalletbtn} sx={{
+                                backgroundColor: 'disBtn.default', '&:hover': {
+                                    backgroundColor: 'disBtn.default'
+                                }
+                            }} variant='contained'>Connect Wallet</Button></Box>}
 
                         </Box>
 
                     </TabPanel>
                 </Box>
                 <TabPanel value={0}>
-                    <Collection/>
+                    <Collection />
 
                 </TabPanel>
                 <TabPanel value={1}>
-                     <PoolTab/>
+                    <PoolTab />
 
                 </TabPanel>
             </TabsUnstyled>

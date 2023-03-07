@@ -46,7 +46,6 @@ const Tab = styled(TabUnstyled)`
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   width: 100%;
   padding: 10px 12px;
   margin: 6px 0px;
@@ -54,7 +53,7 @@ const Tab = styled(TabUnstyled)`
   border: none;
   border-radius: 12px;
   &:hover {
-    background-color: #080808;
+    background-color: bgt.default;
   }
 
   &:focus {
@@ -63,7 +62,7 @@ const Tab = styled(TabUnstyled)`
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: #000;
+    background-color: bgt.default;
     outline: 3px solid #ffa500 ;
   }
 
@@ -98,14 +97,14 @@ export default function CenterBarTab() {
         <Box className={classes.mainBox}>
             <TabsUnstyled defaultValue={0}>
                 <TabsList>
-                    <Tab sx={{ marginRight: '1rem' }}>
+                    <Tab sx={{ marginRight: '1rem', backgroundColor : 'bgt.default' }}>
                         <Typography component={'img'} src={greenArrow} />
-                        <Typography fontWeight={700} ml={1}>Long</Typography>
+                        <Typography fontWeight={700} ml={1} color={'text.default'}>Long</Typography>
                     </Tab>
 
-                    <Tab>
+                    <Tab sx={{backgroundColor : 'bgt.default'}}>
                         <Typography component={'img'} src={redArrow} />
-                        <Typography fontWeight={700} ml={1}>Short</Typography>
+                        <Typography fontWeight={700} ml={1} color={'text.default'}>Short</Typography>
                     </Tab>
 
                 </TabsList>
@@ -114,7 +113,7 @@ export default function CenterBarTab() {
 
                 </TabPanel>
                 <TabPanel value={1}>
-                    <Size TabTitle="SHORT"/>
+                    <Size TabTitle="SHORT" />
 
                 </TabPanel>
             </TabsUnstyled>

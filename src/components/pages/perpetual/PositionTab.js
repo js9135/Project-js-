@@ -23,20 +23,30 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        '@media(max-width : 900px)': {
+            display: 'inherit'
+        }
     },
     searchWrap: {
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media(max-width : 900px)':{
+            marginTop : '1rem',
+            justifyContent : 'left',
+            '@media(max-width : 600px)':{
+               display : 'inherit'
+            }
+        }
     },
     searchBar: {
         display: 'flex',
-        border: '1px solid #ffffff3b',
+        border: '1px solid #999',
         alignItems: 'center',
         borderRadius: '2rem'
     },
     gridBtn: {
         borderRadius: '0.5rem',
-        backgroundColor: '#080808',
+        backgroundColor: '#5b5b5b',
         padding: '0.3rem 0.5rem',
         textTransform: 'none',
         marginLeft: '1rem',
@@ -51,6 +61,15 @@ const useStyles = makeStyles({
             backgroundColor: '#ffa500',
             color: '#000'
         },
+        '@media(max-width : 600px)':{
+            marginTop : '1rem',
+        }
+        
+    },
+    br : {
+        '@media(max-width : 900px)':{
+            display : 'none',
+        }
     }
 
 })
@@ -59,18 +78,16 @@ const useStyles = makeStyles({
 
 const Tab = styled(TabUnstyled)`
   font-family: poppins;
-  color: #fff;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   padding: 0.4rem 1.5rem;
   margin: 6px 0px;
   border: none;
   border-radius: 0.5rem;
 
   &:hover {
-    background-color: #080808;
+    background-color: disBtn.default;
   }
 
   &:focus {
@@ -101,6 +118,7 @@ const TabsList = styled(TabsListUnstyled)(
   align-items: center;
   justify-content: left;
   align-content: space-between;
+  
   `,
 );
 
@@ -111,17 +129,40 @@ export default function PositionTab() {
         <Box className={classes.mainBox}>
             <TabsUnstyled defaultValue={0}>
                 <Box className={classes.tabBox}>
-                    <TabsList>
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>My Open <br />Positions</Typography>
+                    <TabsList sx={{
+                        '@media(max-width : 900px)': {
+                            justifyContent: 'space-between',
+                            '@media(max-width : 600px)': {
+                                display : 'inherit'
+                            }
+                        }
+                    }}>
+                        <Tab sx={{ marginRight: '1rem' ,
+                        backgroundColor : 'disBtn.default',
+                        color : 'text.default',
+                        '@media(max-width : 600px)':{
+                            width : '100%'
+                        }
+                    }}>
+                            <Typography fontWeight={700}>My Open <br className={classes.br} />Positions</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>My Closed <br />Positions</Typography>
+                        <Tab sx={{ marginRight: '1rem',
+                         backgroundColor : 'disBtn.default',
+                         color : 'text.default',
+                    '@media(max-width : 600px)':{
+                        width : '100%'
+                    } }}>
+                            <Typography fontWeight={700}>My Closed <br className={classes.br} />Positions</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>All Closed <br />Positions</Typography>
+                        <Tab sx={{ marginRight: '1rem',
+                         backgroundColor : 'disBtn.default',
+                         color : 'text.default',
+                    '@media(max-width : 600px)':{
+                        width : '100%'
+                    } }}>
+                            <Typography fontWeight={700}>All Closed <br className={classes.br} />Positions</Typography>
                         </Tab>
 
                     </TabsList>
@@ -129,7 +170,9 @@ export default function PositionTab() {
                     <TabPanel value={0}>
                         <Box className={classes.searchWrap}>
                             <Box className={classes.searchBar}>
-                                <Typography sx={{ cursor: 'context-menu', paddingLeft: '1rem' }} color={'#979494'}>Search Open Position ID #</Typography>
+                                <Typography sx={{ cursor: 'context-menu', paddingLeft: '1rem',
+                                '@media(max-width : 600px)':{fontSize : '0.6rem',paddingLeft: '0.6rem'}
+                             }} color={'#979494'}>Search Open Position ID #</Typography>
                                 <TextField
                                     id="outlined-basic"
                                     variant="standard"
@@ -138,7 +181,7 @@ export default function PositionTab() {
                                     }}
                                     sx={{
                                         '& .MuiInputBase-root': {
-                                            color: '#fff',
+                                            color: 'text.default',
                                         }
                                     }}
                                 />
@@ -147,7 +190,8 @@ export default function PositionTab() {
                                         borderRadius: '0rem',
                                         backgroundColor: 'transparent',
                                         textTransform: 'none',
-                                        borderLeft: '1px solid #ffffff3b',
+                                        borderLeft: '1px solid #999',
+                                        boxShadow : 'inherit',
                                         color: '#717171',
                                         '&:hover': {
                                             backgroundColor: '#ffa500',
@@ -160,11 +204,12 @@ export default function PositionTab() {
 
                                 <Button
                                     sx={{
+                                        boxShadow :'inherit',
                                         borderRadius: '0rem 2rem 02rem 0rem',
                                         backgroundColor: 'transparent',
                                         textTransform: 'none',
                                         color: '#717171',
-                                        borderLeft: '1px solid #ffffff3b',
+                                        borderLeft: '1px solid #999',
                                         '&:hover': {
                                             backgroundColor: '#ffa500',
                                             color: '#000'
@@ -189,7 +234,7 @@ export default function PositionTab() {
                                     }}
                                     sx={{
                                         '& .MuiInputBase-root': {
-                                            color: '#fff',
+                                            color: 'text.default',
                                         }
                                     }}
                                 />
@@ -215,7 +260,7 @@ export default function PositionTab() {
                                     }}
                                     sx={{
                                         '& .MuiInputBase-root': {
-                                            color: '#fff',
+                                            color: 'text.default',
                                         }
                                     }}
                                 />

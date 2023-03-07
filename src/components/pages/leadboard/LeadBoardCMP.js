@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width  : 1200px)':{
+            overflowY : 'inherit'
+                    },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -31,10 +34,16 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         paddingBottom: '1rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto'
+        }
     },
     boxMain: {
-        padding: '5rem 1.5rem 2rem 1.5rem'
+        padding: '5rem 1.5rem 2rem 1.5rem',
+        '@media(max-width : 1200px)': {
+            padding: '2rem 1.5rem 2rem 1.5rem',
+        }
     },
     switchbtn: {
         background: 'linear-gradient(45deg, #ffa500 10%, #ff8e53 90%)',
@@ -170,7 +179,7 @@ const useStyles = makeStyles({
     },
     searchBar: {
         display: 'flex',
-        border: '1px solid #ffffff3b',
+        border: '1px solid #999',
         alignItems: 'center',
         borderRadius: '2rem',
         padding: '0.2rem 1rem'
@@ -182,8 +191,8 @@ const useStyles = makeStyles({
     switch: {
         marginLeft: '2rem'
     },
-    topTrader : {
-        marginTop : '1.5rem'
+    topTrader: {
+        marginTop: '1.5rem'
     }
 
 })
@@ -203,14 +212,16 @@ const LeadBoardCMP = () => {
 
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Header HeaderTitle="Perps Stats" />
                     <Box className={classes.boxMain}>
                         <Info />
                         <Box className={classes.bridgeHistoryWrap}>
                             <Box className={classes.stakedNft}>
-                                <Box><Typography fontWeight={700} color={'#fff'}>Top Traders</Typography></Box>
+                                <Box><Typography fontWeight={700} color={'text.default'}>Top Traders</Typography></Box>
                                 <Box className={classes.searchWrap}>
                                     <Box className={classes.searchBar}>
                                         <TextField
@@ -222,7 +233,7 @@ const LeadBoardCMP = () => {
                                             }}
                                             sx={{
                                                 '& .MuiInputBase-root': {
-                                                    color: '#fff',
+                                                    color: 'text.default',
                                                 }
                                             }}
                                         />
@@ -312,9 +323,9 @@ const LeadBoardCMP = () => {
                         </Box>
 
                         <Box className={classes.topTrader}>
-                        <TopTrader/>
+                            <TopTrader />
                         </Box>
-                        
+
                     </Box>
                 </Box>
             </Box>

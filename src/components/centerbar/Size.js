@@ -46,7 +46,6 @@ const useStyles = makeStyles({
             color: '#fffd02',
         },
         '& .MuiSlider-markLabel': {
-            color: '#fff',
             marginTop: '-3rem',
             transform: 'translateX(-125%)',
             marginLeft: '6px'
@@ -66,14 +65,17 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     reached: {
-        border: '1px solid #ffffff3b !important',
-        color: '#fff !important',
+        border: '1px solid #999 !important',
+        boxShadow : 'inherit !important',
         padding: '0.5rem 1rem !important',
         borderRadius: '3rem !important',
-        backgroundColor: 'transparent !important',
+        
         marginTop: '1rem !important',
         textTransform: 'none !important',
-        fontSize: '16px !important'
+        fontSize: '16px !important',
+        '&:hover':{
+            backgroundColor : 'inherit !important'
+        }
     },
     infoListitem: {
         justifyContent: 'space-between !important',
@@ -91,10 +93,10 @@ const useStyles = makeStyles({
         marginTop: '0.7rem'
     },
     triPercentage: {
-        backgroundColor: 'transparent !important',
         padding: '0.4rem 0.6rem !important',
         minWidth: '59px !important',
         borderRadius: '0.4rem !important',
+        boxShadow : 'inherit !important',
         '&:hover': {
             backgroundColor: '#ffa500 !important',
             color: '#000',
@@ -149,20 +151,20 @@ const Size = ({ TabTitle }) => {
         <>
             <Box>
                 <Box mt={2}>
-                    <Typography color={'#fff'} variant="h6">Size</Typography>
+                    <Typography color={'text.default'} variant="h6">Size</Typography>
                 </Box>
             </Box>
 
-            <Box className={classes.sizeWrap}>
+            <Box className={classes.sizeWrap} sx={{backgroundColor : 'box2.default'}}>
                 <Box>
                     <Box>
                         <Typography color={'#999'}>PAY
-                            <Typography component={'span'} color={'#fff'} fontWeight={700}> 0 YDF</Typography>
+                            <Typography component={'span'} color={'text.default'} fontWeight={700}> 0 YDF</Typography>
                         </Typography>
                     </Box>
                     <Box>
 
-                        <Typography color={'#fff'} fontWeight={700}>YDF Bal: 0.00 ($0.00)
+                        <Typography color={'text.default'} fontWeight={700}>YDF Bal: 0.00 ($0.00)
                             <Typography sx={{ textDecoration: 'none' }} component={'a'} href={'#'} color={'#ffa500'}> MAX</Typography>
                         </Typography>
 
@@ -173,17 +175,17 @@ const Size = ({ TabTitle }) => {
             </Box>
 
 
-            <Box className={classes.sizeWrap}>
+            <Box className={classes.sizeWrap} sx={{backgroundColor : 'box2.default'}}>
                 <Box>
                     <Box>
                         <Typography color={'#999'} >{TabTitle}
-                            <Typography component={'span'} color={'#fff'} fontWeight={700}> 0  YDF</Typography>
+                            <Typography component={'span'} color={'text.default'} fontWeight={700}> 0  YDF</Typography>
                         </Typography>
                     </Box>
 
                     <Box>
-                        <Typography color={'#fff'}>Leverage:
-                            <Typography component={'span'} color={'#fff'} fontWeight={700}> {val}</Typography>
+                        <Typography color={'text.default'}>Leverage:
+                            <Typography component={'span'} color={'text.default'} fontWeight={700}> {val}</Typography>
                         </Typography>
                     </Box>
                 </Box>
@@ -194,10 +196,10 @@ const Size = ({ TabTitle }) => {
 
 
             <Box mt={2}>
-                <Typography color={'#fff'} variant="h6">Leverage</Typography>
+                <Typography color={'text.default'} variant="h6">Leverage</Typography>
             </Box>
 
-            <Box className={classes.laverageSlider}>
+            <Box className={classes.laverageSlider} sx={{backgroundColor : 'box2.default'}}>
                 <Slider
                     aria-label="Always visible"
                     defaultValue={0}
@@ -207,25 +209,34 @@ const Size = ({ TabTitle }) => {
                     onChange={updateRange}
                     valueLabelDisplay="off"
                     className={classes.sliderRange}
+                    sx={{color : 'text.default',
+                    '& .MuiSlider-markLabel': {
+                        color: 'text.default',
+                    },}}
                 />
             </Box>
 
 
-            <Box className={classes.addTrigger}>
-                <Box className={classes.switchWrap}>
-                    <Typography color={'#fff'} fontWeight={700}>Add Trigger Order (TP/SL)</Typography>
+            <Box className={classes.addTrigger} sx={{backgroundColor :'box2.default'}}>
+                <Box className={classes.switchWrap} >
+                    <Typography color={'text.default'} fontWeight={700}>Add Trigger Order (TP/SL)</Typography>
                     <Switch className={classes.switch} onClick={() => setShow(prev => !prev)} />
                 </Box>
 
 
                 {show &&
                     <Box>
-                        <Box className={classes.triList}>
-                            <Button variant="contained" className={classes.triPercentage} >50%</Button>
-                            <Button variant="contained" className={classes.triPercentage} >60%</Button>
-                            <Button variant="contained" className={classes.triPercentage} >75%</Button>
-                            <Button variant="contained" className={classes.triPercentage} >105%</Button>
-                            <Button variant="contained" className={classes.triPercentage} >200%</Button>
+                        <Box className={classes.triList} sx={{backgroundColor : 'bg.default'}}>
+                            <Button variant="contained" className={classes.triPercentage} 
+                            sx={{backgroundColor : 'bg.default', color : 'text.default'}} >50%</Button>
+                            <Button variant="contained" className={classes.triPercentage} 
+                             sx={{backgroundColor : 'bg.default', color : 'text.default'}}>60%</Button>
+                            <Button variant="contained" className={classes.triPercentage} 
+                             sx={{backgroundColor : 'bg.default', color : 'text.default'}}>75%</Button>
+                            <Button variant="contained" className={classes.triPercentage} 
+                             sx={{backgroundColor : 'bg.default', color : 'text.default'}}>105%</Button>
+                            <Button variant="contained" className={classes.triPercentage} 
+                             sx={{backgroundColor : 'bg.default', color : 'text.default'}}>200%</Button>
                         </Box>
                         <Typography color={'#999'} mt={1} mb={1}>Current index price: $24,536.11</Typography>
                         <Divider sx={{ borderColor: '#ffffff40' }} />
@@ -241,9 +252,9 @@ const Size = ({ TabTitle }) => {
             </Box>
 
 
-            <Box className={classes.addTrigger}>
+            <Box className={classes.addTrigger} sx={{backgroundColor : 'box2.default'}}>
                 <Box className={classes.switchWrap}>
-                    <Typography color={'#fff'}>Enter Referral Code</Typography>
+                    <Typography color={'text.default'}>Enter Referral Code</Typography>
                     <TextField
                         id="outlined-basic"
                         variant="standard"
@@ -254,7 +265,7 @@ const Size = ({ TabTitle }) => {
                         sx={{
                             width: '50%',
                             '& .MuiInputBase-root': {
-                                color: '#fff',
+                                color: 'text.default',
                             },
                             '& .MuiInputBase-input': {
                                 textAlign: 'right'
@@ -265,53 +276,53 @@ const Size = ({ TabTitle }) => {
             </Box>
 
             <Box>
-                <Button className={classes.reached} variant="contained" fullWidth>Max Collateral Reached</Button>
+                <Button className={classes.reached} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="contained" fullWidth>Max Collateral Reached</Button>
             </Box>
 
             <Box mt={2}>
-                <Typography color={'#fff'} variant="h6">Long Info</Typography>
+                <Typography color={'text.default'} variant="h6">Long Info</Typography>
             </Box>
 
             <Box>
-                <List className={classes.longInfoBox}>
+                <List className={classes.longInfoBox} sx={{backgroundColor : 'box2.default'}}>
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Collateral</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'}></Typography>
+                        <Typography color={'text.default'} fontSize={'14px'}></Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Index Entry Price</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'} >$22,152.31</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'} >$22,152.31</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Index Liq. Price</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'} >$2,215.23</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'} >$2,215.23</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Leverage</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'}>1x</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'}>1x</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Pay</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'} >0 ($0.00)</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'} >0 ($0.00)</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Long</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'}>0 ($0.00)</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'}>0 ($0.00)</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Open Fee</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'}>0.00</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'}>0.00</Typography>
                     </ListItem>
 
                     <ListItem className={classes.infoListitem}>
                         <Typography color={'#999'} fontSize={'14px'}>Borrow Fee</Typography>
-                        <Typography color={'#fff'} fontSize={'14px'}>0 / hr.</Typography>
+                        <Typography color={'text.default'} fontSize={'14px'}>0 / hr.</Typography>
                     </ListItem>
                 </List>
             </Box>

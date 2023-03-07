@@ -18,8 +18,8 @@ const LockupBox = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.revenueBox}>
-                <Typography color={'#FCD349'}>The selected stake option includes a lockup period.
+            <Box className={classes.revenueBox} sx={{backgroundColor : 'revenue.default'}}>
+                <Typography color={'revenuetext.default'}>The selected stake option includes a lockup period.
                     You are able to unstake before the lockup period ends, but you will be subject to
                     a penalty of your principal staked proportional to the amount of time you've staked
                     and however long your lockup period is.</Typography>

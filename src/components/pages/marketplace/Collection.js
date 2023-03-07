@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, } from "react";
 import { makeStyles } from "@mui/styles";
 import { Box, Grid, List, ListItem, Slider, Typography } from "@mui/material";
 import ohfimg from '../../assets/images/ohfimg.png'
 import ethIcon from '../../assets/images/ethIcon.svg'
 import logow from '../../assets/images/logow.svg'
+import logoww from '../../assets/images/logoww.svg'
 import sfimg from '../../assets/images/sfimg.png'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
@@ -13,6 +14,7 @@ import usdcIcon from '../../assets/images/usdcIcon.svg'
 import usdtIcon from '../../assets/images/usdtIcon.svg'
 import Modal from "./Modal";
 import OffCanvas from "./OffCanvas";
+import { ColorModeContext } from "../../../store/Index";
 
 
 
@@ -453,11 +455,11 @@ const Collection = () => {
         setPage(value);
     };
 
-
+    const { mode, toggleMode } = useContext(ColorModeContext)
     return (
         <>
             <Box className={classes.collectionHeading}>
-                <Typography color={'#fff'} fontWeight={700}>Collection List</Typography>
+                <Typography color={'text.default'} fontWeight={700}>Collection List</Typography>
                 <OffCanvas />
             </Box>
 
@@ -479,28 +481,28 @@ const Collection = () => {
                             } = e
                             return (
                                 <Grid key={id} item lg={6} md={6} sm={12} xs={12}>
-                                    <Box className={classes.marketplaceBox}>
+                                    <Box className={classes.marketplaceBox} sx={{backgroundColor : 'disBtn.default'}}>
                                         <Box className={classes.topBoxM}>
                                             <Box className={classes.nftImage}>
                                                 <Typography component={'img'} src={ohfimg} width={'100%'} />
                                             </Box>
                                             <Box className={classes.stakedMark}>
-                                                <Typography  ><Typography component={'span'} className={classes.sYDF} color={'#fff'}>sYDF</Typography>
-                                                    <Typography component={'span'} color={'#fff'} fontWeight={700}> {APR}</Typography>
+                                                <Typography  ><Typography component={'span'} className={classes.sYDF} color={'text.default'}>sYDF</Typography>
+                                                    <Typography component={'span'} color={'text.default'} fontWeight={700}> {APR}</Typography>
                                                 </Typography>
                                                 <Box height={10} />
-                                                <Typography component={'a'} href={'#'} variant="h6" color={'#fff'} fontWeight={700}>{STAKED}</Typography>
+                                                <Typography component={'a'} href={'#'} variant="h6" color={'text.default'} fontWeight={700}>{STAKED}</Typography>
                                             </Box>
                                         </Box>
 
-                                        <List className={classes.addressList}>
+                                        <List className={classes.addressList} sx={{backgroundColor : 'bg.default'}}>
                                             <ListItem className={classes.addressWrap}>
                                                 <Box>
                                                     <Typography className={classes.addessFontSize} color={'#999'}>Owner:</Typography>
                                                 </Box>
                                                 <Box className={classes.addessCont}>
                                                     <Typography component={'img'} src={ethIcon} />
-                                                    <Typography component={'a'} href="https://etherscan.io/address/0x558400EEfcBA45b227163B08e9d60F4d388d4586" target={'_blank'} fontWeight={700} color={'#fff'} ml={1}>{OWNERADDRESS}</Typography>
+                                                    <Typography component={'a'} href="https://etherscan.io/address/0x558400EEfcBA45b227163B08e9d60F4d388d4586" target={'_blank'} fontWeight={700} color={'text.default'} ml={1}>{OWNERADDRESS}</Typography>
                                                 </Box>
                                             </ListItem>
 
@@ -509,8 +511,8 @@ const Collection = () => {
                                                     <Typography className={classes.addessFontSize} color={'#999'}>Stake Principal:</Typography>
                                                 </Box>
                                                 <Box className={classes.addessCont}>
-                                                    <Typography component={'img'} src={logow} />
-                                                    <Typography fontWeight={700} color={'#fff'} ml={1}>{STAKE_PRINCIPAL}
+                                                    <Typography component={'img'} src={`${mode === 'dark' ? logow : logoww}`} />
+                                                    <Typography fontWeight={700} color={'text.default'} ml={1}>{STAKE_PRINCIPAL}
                                                         <Typography component={'span'} color={'#ffa500'}> {STAKE_PRINCIPAL_IN}</Typography>
                                                     </Typography>
                                                 </Box>
@@ -521,19 +523,19 @@ const Collection = () => {
                                                     <Typography className={classes.addessFontSize} color={'#999'}>Earning Per Annum:</Typography>
                                                 </Box>
                                                 <Box className={classes.addessCont}>
-                                                    <Typography component={'img'} src={logow} />
-                                                    <Typography fontWeight={700} color={'#fff'} ml={1}>{EARNING}
+                                                    <Typography component={'img'} src={`${mode === 'dark' ? logow : logoww}`} />
+                                                    <Typography fontWeight={700} color={'text.default'} ml={1}>{EARNING}
                                                         <Typography component={'span'} color={'#ffa500'}> {EARNING_IN}</Typography>
                                                     </Typography>
                                                 </Box>
                                             </ListItem>
                                         </List>
 
-                                        <List className={classes.addressList}>
+                                        <List className={classes.addressList} sx={{backgroundColor : 'bg.default'}}>
                                             <ListItem className={classes.addressWrap}>
                                                 <Box>
-                                                    <Typography className={classes.addessFontSize} color={'#fff'}>Lockup Expires</Typography>
-                                                    <Typography color={'#fff'}>Ends
+                                                    <Typography className={classes.addessFontSize} color={'text.default'}>Lockup Expires</Typography>
+                                                    <Typography color={'text.default'}>Ends
                                                         <Typography component={'span'}> {ENDS_DATE}</Typography>
                                                     </Typography>
                                                 </Box>
@@ -553,7 +555,7 @@ const Collection = () => {
                                             </ListItem>
 
                                             <ListItem className={classes.addressWrap}>
-                                                <Typography color={'#fff'}>Time Remaining:
+                                                <Typography color={'text.default'}>Time Remaining:
                                                     <Typography component={'span'}> {REMAININD}</Typography>
                                                 </Typography>
                                             </ListItem>
@@ -576,7 +578,7 @@ const Collection = () => {
                 {/* <Typography color={'#fff'}>Page: {page}</Typography> */}
                 <Pagination sx={{
                     marginTop: '2rem',
-                    '& .MuiButtonBase-root': { color: '#fff' },
+                    '& .MuiButtonBase-root': { color: 'text.default' },
                     '& .MuiPagination-ul': { justifyContent: 'center' }
                 }} color="primary" count={10} page={page} onChange={handleChange} />
 

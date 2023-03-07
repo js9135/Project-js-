@@ -57,7 +57,7 @@ const useStyles = makeStyles({
     addressList: {
         backgroundColor: '#000',
         borderRadius: '0.5rem',
-        marginTop: '1rem !important'
+        marginTop: '1rem !important',
     },
     sliderRange: {
         marginBottom: '0px !important',
@@ -95,7 +95,7 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ffb102',
             padding: '3px'
         },
 
@@ -135,7 +135,10 @@ const useStyles = makeStyles({
     },
     enterBox: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media(max-width : 600px)':{
+            display : 'inherit'
+        }
     },
     enterBoxWrap: {
         backgroundColor: '#151515',
@@ -200,24 +203,24 @@ const Token = [
 
     {
         id: 1,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>ETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} >ETH</Typography></Box>,
     },
 
     {
         id: 2,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} color={'#fff'}>DAI</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} >DAI</Typography></Box>,
     },
     {
         id: 3,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} color={'#fff'}>USDC</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} >USDC</Typography></Box>,
     },
     {
         id: 4,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} color={'#fff'}>USDT</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} >USDT</Typography></Box>,
     },
     {
         id: 5,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>WETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} >WETH</Typography></Box>,
     },
 
 ];
@@ -277,9 +280,10 @@ const MakeOfferModal = () => {
                     sx={{
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
-                            backgroundColor: '#000',
+                            width : '550px',
+                            backgroundColor: 'disBtn.default',
                             border: '1px solid #ffa500',
-                            color: '#fff'
+                            color: 'text.default'
                         }
                     }}
                     open={open}
@@ -292,26 +296,26 @@ const MakeOfferModal = () => {
                     <DialogTitle id="scroll-dialog-title">
                         <Box className={classes.modalHding}>
                             <Typography variant="h6" fontWeight={700}>Make Offer for Package #2</Typography>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
                     <DialogContent dividers={scroll === 'paper'}>
                         <Box>
 
-                            <List className={classes.addressList}>
+                            <List className={classes.addressList} sx={{backgroundColor : 'bg.default'}}>
 
-                                <ListItem className={classes.addressWrap}>
+                                <ListItem className={classes.addressWrap} >
                                     <Box className={classes.addessCont}>
 
-                                        <Typography className={classes.asset} mb={1} fontSize={14} color={'#000'} >Assets in Package</Typography>
+                                        <Typography className={classes.asset} mb={1} fontSize={14} color={'text.default'} >Assets in Package</Typography>
                                     </Box>
                                 </ListItem>
                                 <Box height={5} />
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
                                         <Typography component={'img'} src={logo} width={25} />
-                                        <Typography fontWeight={700} color={'#fff'} ml={1}>25.5 YDF
+                                        <Typography fontWeight={700}  ml={1}>25.5 YDF
                                             <Typography component={'span'} color={'#ffa500'}> ($0.48)</Typography>
                                         </Typography>
                                     </Box>
@@ -320,32 +324,30 @@ const MakeOfferModal = () => {
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
                                         <Typography component={'img'} src={ethsilver} width={25} />
-                                        <Typography fontWeight={700} color={'#fff'} ml={1}>0.00500 ETH
+                                        <Typography fontWeight={700}  ml={1}>0.00500 ETH
                                             <Typography component={'span'} color={'#ffa500'}> ($8.18)</Typography>
                                         </Typography>
                                     </Box>
                                 </ListItem>
 
                             </List>
-                            <Box className={classes.enterBoxWrap}>
+                            <Box className={classes.enterBoxWrap} sx={{backgroundColor : 'box2.default'}}>
                                 <Box className={classes.enterBox}>
-                                    <Typography color={'#fff'}>Enter
+                                    <Typography>Enter
                                         <Typography component={'span'}> USDC Amount</Typography>
                                     </Typography>
-                                    <Typography color={'#fff'}>USDC Balance: 0.0000 USDC ($0)</Typography>
+                                    <Typography sx={{'@media(max-width : 600px)':{marginTop : '1rem'}}}>USDC Balance: 0.0000 USDC ($0)</Typography>
                                 </Box>
 
-                                <Box className={classes.formCont}>
-                                    <Typography variant="h6" color={'#fff'} fontWeight={700} ml={2}>0</Typography>
+                                <Box className={classes.formCont} sx={{backgroundColor : 'bg.default'}}>
+                                    <Typography variant="h6"  fontWeight={700} ml={2}>0</Typography>
                                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
 
                                         <Select
-                                            className={classes.textfield3
-
-                                            }
+                                             
                                             sx={{
                                                 "& fieldset": { border: 'none', },
-                                                '& .MuiSvgIcon-root': { color: '#fff' },
+                                                '& .MuiSvgIcon-root': { color: 'text.default' },
 
 
 
@@ -357,7 +359,7 @@ const MakeOfferModal = () => {
                                         >
                                             {Token.map((e) => (
                                                 <MenuItem
-                                                    className={classes.menuItemSelect}
+                                                 
                                                     key={e.id} value={e.id}>
                                                     {e.label}
 
@@ -383,9 +385,9 @@ const MakeOfferModal = () => {
                             </Box>
 
                             <Box>
-                                <Typography mt={2} variant="h6" color={'#fff'}>Offer Expiration</Typography>
-                                <Box className={classes.duration}>
-                                    <Typography color={'#FCD349'}>Offer will expire March 1, 2023 12:24 PM</Typography>
+                                <Typography mt={2} variant="h6">Offer Expiration</Typography>
+                                <Box className={classes.duration} sx={{backgroundColor : 'revenue.default'}}>
+                                    <Typography color={'revenuetext.default'}>Offer will expire March 1, 2023 12:24 PM</Typography>
                                 </Box>
                             </Box>
 

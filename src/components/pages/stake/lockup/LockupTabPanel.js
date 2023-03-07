@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     bridgeDisabledBtn: {
         padding: '0.8rem 1rem !important',
         borderRadius: '0.8rem !important',
-        backgroundColor: '#000 !important',
         color: '#9d9c9c !important',
     },
 })
@@ -25,11 +24,11 @@ const LockupTabPanel = () => {
     return (
         <>
             <Box className={classes.lockupHding}>
-                <Typography fontWeight={700} color={'#fff'}>Staking Amount</Typography>
+                <Typography fontWeight={700} color={'text.default'}>Staking Amount</Typography>
             </Box>
             <SliderBox />
             <Box className={classes.bridgeDisabledBtnWrp}>
-                <Button className={classes.bridgeDisabledBtn} variant="contained" fullWidth>Please enter valid inputs to stake.</Button>
+                <Button className={classes.bridgeDisabledBtn}sx={{backgroundColor : 'bg.default','&:hover':{backgroundColor : 'bg.default'}}} variant="contained" fullWidth>Please enter valid inputs to stake.</Button>
             </Box>
         </>
     )

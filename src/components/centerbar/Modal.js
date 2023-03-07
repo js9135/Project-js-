@@ -43,13 +43,17 @@ const useStyles = makeStyles({
     ModalListItem: {
         display: 'flex',
         textDecoration: 'none',
-        backgroundColor: '#151515',
+        
         padding: '0.6rem !important',
         width: '25rem !important',
         borderRadius: '2rem',
         marginTop: '0.8rem',
+        border : '1px solid #999',
         '&:focus':{
             border : '1px solid #ffa500'
+        },
+        '@media(max-width : 600px)':{
+            width: '14.5rem !important',
         }
     },
     dilogTitle: {
@@ -88,9 +92,9 @@ const Modal = () => {
                     sx={{
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
-                            backgroundColor: '#000',
+                            backgroundColor: 'bg.default',
                             border: '1px solid #ffa500',
-                            color: '#fff'
+                            color: 'text.default'
                         }
                     }}
                     open={open}
@@ -103,7 +107,7 @@ const Modal = () => {
                     <DialogTitle className={classes.dilogTitle} id="scroll-dialog-title">
                         <Box className={classes.modalHding}>
                             <Typography variant="h6" fontWeight={700}>Make Offer</Typography>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
@@ -116,72 +120,72 @@ const Modal = () => {
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={AmplifiIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>AMPLIFI (Amplifi)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>AMPLIFI (Amplifi)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={APEIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>APE (ApeCoin)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>APE (ApeCoin)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={bcbIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>BCB (Blockchain Bets)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>BCB (Blockchain Bets)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={boneIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>BONE (BONE SHIBASWAP)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>BONE (BONE SHIBASWAP)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={croIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>CRO (CRO)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>CRO (CRO)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={CultIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>CULT (Cult DAO)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>CULT (Cult DAO)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={ChainLinkIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>LINK (ChainLink Token)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>LINK (ChainLink Token)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={SHIBIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>SHIB (SHIBA INU)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>SHIB (SHIBA INU)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={usdcIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>USDC (USD Coin)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>USDC (USD Coin)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={usdtIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>USDT (Tether USD)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>USDT (Tether USD)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={VoltIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>VOLT (Volt Inu)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>VOLT (Volt Inu)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={WrappedIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>WBTC (Wrapped BTC)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>WBTC (Wrapped BTC)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={WETHIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>WETH (Wrapped Ether)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>WETH (Wrapped Ether)</Typography>
                                 </Link>
 
                                 <Link className={classes.ModalListItem}>
                                     <Typography component={'img'} src={YDFIcon} />
-                                    <Typography ml={1.5} color={'#fff'} fontWeight={500}>YDF (Yieldification)</Typography>
+                                    <Typography ml={1.5} color={'text.default'} fontWeight={500}>YDF (Yieldification)</Typography>
                                 </Link>
 
 

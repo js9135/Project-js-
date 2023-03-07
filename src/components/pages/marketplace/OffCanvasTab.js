@@ -12,8 +12,6 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     mainBox: {
-        backgroundColor: '#151515',
-        
         borderRadius: '0.6rem',
          
     },
@@ -30,14 +28,13 @@ const Tab = styled(TabUnstyled)`
   width : 100%;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   padding: 0.4rem 1.2rem;
-  margin: 6px 0px;
+  margin: 6px 6px;
   border: none;
   border-radius: 3rem;
 
   &:hover {
-    background-color: #000;
+    background-color: bg.default;
   }
 
   &:focus {
@@ -46,7 +43,7 @@ const Tab = styled(TabUnstyled)`
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: #000;
+    background-color: bg.default;
     outline: 3px solid #ffa500 ;
   }
 
@@ -75,16 +72,16 @@ export default function OffCanvasTab({OffCanvas1, OffCanvas2, }) {
     const classes = useStyles();
     return (
 
-        <Box className={classes.mainBox}>
+        <Box className={classes.mainBox} sx={{backgroundColor: 'bg.default',}}>
             <TabsUnstyled defaultValue={0}>
 
                 <TabsList>
-                    <Tab sx={{ marginRight: '1rem' }}>
-                        <Typography fontWeight={700}>{OffCanvas1}</Typography>
+                    <Tab sx={{ backgroundColor : 'bg.default' }}>
+                        <Typography fontWeight={700} color={'text.default'}>{OffCanvas1}</Typography>
                     </Tab>
 
-                    <Tab sx={{ marginRight: '1rem' }}>
-                        <Typography fontWeight={700}>{OffCanvas2}</Typography>
+                    <Tab sx={{ backgroundColor : 'bg.default' }}>
+                        <Typography fontWeight={700} color={'text.default'}>{OffCanvas2}</Typography>
                     </Tab>
                     
                 </TabsList>

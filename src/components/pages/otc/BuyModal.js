@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState} from "react";
 import { makeStyles } from "@mui/styles";
-import { Box, Button, Dialog, DialogContent, DialogTitle, FormControl, IconButton, List, ListItem, MenuItem, Select, Slider, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogContent, DialogTitle,  IconButton, List, ListItem,  Typography } from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
-import eth from '../../assets/images/ethIcon.svg'
-import daiIcon from '../../assets/images/daiIcon.svg'
-import usdcIcon from '../../assets/images/usdcIcon.svg'
-import usdtIcon from '../../assets/images/usdtIcon.svg'
 import logo from '../../assets/images/logo.png'
 import ethsilver from '../../assets/images/ethsilver.png'
+import { ColorModeContext } from "../../../store/Index";
 
 
 
@@ -58,7 +55,10 @@ const useStyles = makeStyles({
         backgroundColor: '#000',
         borderRadius: '0.5rem',
         marginTop: '1rem !important',
-        width: '28rem'
+        width: '28rem',
+        '@media(max-width : 600px)':{
+            width: '15.5rem',
+        }
     },
     sliderRange: {
         marginBottom: '0px !important',
@@ -245,7 +245,7 @@ const BuyModal = () => {
         setTokenValue(event.target.value);
     };
 
-
+    const { mode, toggleMode } = useContext(ColorModeContext)
 
     return (
         <>
@@ -259,9 +259,9 @@ const BuyModal = () => {
                     sx={{
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
-                            backgroundColor: '#000',
+                            backgroundColor: 'bg.default',
                             border: '1px solid #ffa500',
-                            color: '#fff'
+                            color: 'text.default'
                         }
                     }}
                     open={open}
@@ -274,26 +274,26 @@ const BuyModal = () => {
                     <DialogTitle id="scroll-dialog-title">
                         <Box className={classes.modalHding}>
                             <Typography variant="h6" fontWeight={700}>Purchase OTC Package #2</Typography>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
                     <DialogContent dividers={scroll === 'paper'}>
                         <Box>
 
-                            <List className={classes.addressList}>
+                            <List className={classes.addressList} sx={{backgroundColor : 'box2.default'}}>
 
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
 
-                                        <Typography className={classes.asset} mb={1} fontSize={14} color={'#000'} >Assets in Package</Typography>
+                                        <Typography className={classes.asset} mb={1} fontSize={14} >Assets in Package</Typography>
                                     </Box>
                                 </ListItem>
                                 <Box height={5} />
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
                                         <Typography component={'img'} src={logo} width={25} />
-                                        <Typography fontWeight={700} color={'#fff'} ml={1}>25.5 YDF
+                                        <Typography fontWeight={700}  ml={1}>25.5 YDF
                                             <Typography component={'span'} color={'#ffa500'}> ($0.48)</Typography>
                                         </Typography>
                                     </Box>
@@ -302,7 +302,7 @@ const BuyModal = () => {
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
                                         <Typography component={'img'} src={ethsilver} width={25} />
-                                        <Typography fontWeight={700} color={'#fff'} ml={1}>0.00500 ETH
+                                        <Typography fontWeight={700}  ml={1}>0.00500 ETH
                                             <Typography component={'span'} color={'#ffa500'}> ($8.18)</Typography>
                                         </Typography>
                                     </Box>
@@ -310,25 +310,25 @@ const BuyModal = () => {
 
                             </List>
 
-                            <List className={classes.listPriceG}>
+                            <List className={classes.listPriceG} sx={{  background: `${mode === 'dark' ? 'linear-gradient(220deg, #000000 45%, #d98c004f 100%)' : 'linear-gradient(220deg, #ffffff 45%, #d98c004f 100%)'}`,}}>
 
 
                                 <ListItem className={classes.addressWrap}>
                                     <Box>
-                                        <Typography className={classes.addessFontSize} color={'#fff'}>List Price</Typography>
+                                        <Typography className={classes.addessFontSize} >List Price</Typography>
                                     </Box>
                                 </ListItem>
 
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
-                                        <Typography fontWeight={700} color={'#fff'} >1 ETH
+                                        <Typography fontWeight={700}  >1 ETH
                                             <Typography component={'span'} color={'#ffa500'}> ($1,642.63)</Typography>
                                         </Typography>
                                     </Box>
                                 </ListItem>
                                 <ListItem className={classes.addressWrap}>
                                     <Box className={classes.addessCont}>
-                                        <Typography fontSize={13} color={'#fff'} >Click Buy below to buy today!</Typography>
+                                        <Typography fontSize={13}  >Click Buy below to buy today!</Typography>
                                     </Box>
                                 </ListItem>
 

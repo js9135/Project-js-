@@ -1,16 +1,19 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, } from "react";
 import { makeStyles } from "@mui/styles";
 import Info from "../../info/Info";
 import Header from "../../header/Header";
 import gear from '../../assets/images/gear.svg'
 import Collection from "./Collection";
-
+import { ColorModeContext } from "../../../store/Index";
 
 const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width  : 1200px)':{
+            overflowY : 'inherit'
+                    },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -25,14 +28,20 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         paddingBottom: '1rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto'
+        }
     },
     boxMain: {
-        padding: '5rem 1.5rem 2rem 1.5rem'
+        padding: '5rem 1.5rem 2rem 1.5rem',
+        '@media(max-width : 1200px)': {
+            padding: '2rem 1.5rem 2rem 1.5rem',
+        }
     },
 
     statsBox: {
-        background: 'linear-gradient(290deg, #0f0f0f, #282828)',
+        
         padding: '1rem 1rem',
         borderRadius: '0.5rem',
         marginTop: '1rem'
@@ -67,26 +76,28 @@ const statsBox = [
 
 const MarketplaceCMP = () => {
     const classes = useStyles();
-
+    const { mode, toggleMode } = useContext(ColorModeContext)
 
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Header HeaderTitle="NFT Marketplac" />
                     <Box className={classes.boxMain}>
                         <Info />
 
 
-                        <Box mt={3}><Typography fontWeight={700} color={'#fff'}>Marketplace Stats</Typography></Box>
+                        <Box mt={3}><Typography fontWeight={700} color={'text.default'}>Marketplace Stats</Typography></Box>
                         <Grid container spacing={2}>
                             {
                                 statsBox.map((e, id) => {
                                     const { Title, Para } = e
                                     return (
                                         <Grid key={id} item lg={3} md={3} sm={6} xs={12}>
-                                            <Box className={classes.statsBox}>
-                                                <Typography variant="h5" fontWeight={700} color={'#fff'}>{Title}</Typography>
+                                            <Box className={classes.statsBox} sx={{background: `${mode === 'dark' ? 'linear-gradient(290deg, #0f0f0f, #282828)' : 'linear-gradient(290deg, #edeaea, #d4d4d4)'}`,}}>
+                                                <Typography variant="h5" fontWeight={700} color={'text.default'}>{Title}</Typography>
                                                 <Box height={5} />
                                                 <Typography color={'#999'} fontSize={'14px'}>{Para}</Typography>
                                             </Box>

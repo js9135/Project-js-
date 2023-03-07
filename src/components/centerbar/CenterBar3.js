@@ -13,6 +13,10 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width : 1200px)': {
+            overflowY: 'inherit',
+            minHeight: 'auto'
+        },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -28,7 +32,15 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         padding: '2rem 1.5rem 5rem 1.5rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto',
+            marginTop: '4rem',
+            '@media(max-width : 600px)': {
+                
+                padding: '2rem 1.5rem 0rem 1.5rem',
+            }
+        }
     },
     hding: {
         fontSize: '1.5rem !important'
@@ -104,8 +116,10 @@ const CenterBar3 = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Portfolio />
                     <MyOffer OfferHeading={'My Offers Received'} OfferPara={'You have no offers yet'} />
                     <MyOffer OfferHeading={'My Offers Made'} OfferPara={'You have not made any offers yet'} />

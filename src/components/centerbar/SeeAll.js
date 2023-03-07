@@ -71,7 +71,16 @@ const useStyles = makeStyles({
         marginTop: '1rem !important'
     },
     imptyBox: {
-        padding: '3rem 6rem'
+        padding: '3rem 6rem',
+        '@media(max-width : 1200px)':{
+            padding: '3rem 20rem',
+            '@media(max-width : 900px)':{
+                padding: '3rem 15rem',
+                '@media(max-width : 600px)':{
+                    padding: '3rem 6rem',
+                }
+            }
+        }
     },
     noStake: {
         textAlign: 'center'
@@ -94,7 +103,7 @@ const useStyles = makeStyles({
         paddingBottom: '2rem'
     },
     seeAll: {
-        color: '#fff',
+        color: '#999 ',
         textDecoration: 'none'
     }
 })
@@ -108,7 +117,7 @@ const SeeAll = () => {
              
 
                     <Box className={classes.latestStake}>
-                        <Typography variant="h6" fontWeight={700} color={'#fff'}>My Latest Stake</Typography>
+                        <Typography variant="h6" fontWeight={700} color={'text.default'}>My Latest Stake</Typography>
                         <Link className={classes.seeAll} to={'/nft'} color={'#fff'}>See All NFTs</Link>
                     </Box>
 

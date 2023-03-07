@@ -64,7 +64,17 @@ const useStyles = makeStyles({
         backgroundColor: '#151515',
         padding: '1rem 1.5rem',
         borderRadius: '0.5rem',
-        margin: '1rem 12rem'
+        margin: '1rem 12rem',
+        '@media(max-width : 1200px)':{
+            margin: '1rem 8rem',
+            '@media(max-width : 900px)':{
+                margin: '1rem 2rem',
+                '@media(max-width : 600px)':{
+                    margin: '1rem 0rem',
+                    padding: '1rem 1.5rem',
+                }
+            }
+        }
     }
 })
 
@@ -76,14 +86,13 @@ const Tab = styled(TabUnstyled)`
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   padding:8px 10px 4px 10px;
   margin: 6px 0px;
   border: none;
   border-radius: 2rem;
 
   &:hover {
-    background-color: #000;
+    background-color: bg.default;
   }
 
   &:focus {
@@ -92,7 +101,7 @@ const Tab = styled(TabUnstyled)`
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: #000;
+    background-color: bg.default;
     outline: 3px solid #ffa500 ;
   }
 
@@ -128,23 +137,23 @@ export default function PoolTab() {
 
         <Box className={classes.mainBox}>
             <TabsUnstyled defaultValue={0}>
-                <Box className={classes.mainTab}>
+                <Box className={classes.mainTab} sx={{backgroundColor : 'disBtn.default'}}>
                     <Box>
                         <Typography color={'#ffa500'}>Tradable Pairs</Typography>
                     </Box>
                     <Divider sx={{ margin: '0.6rem 0rem' }} />
                     <TabsList>
-                        <Tab sx={{ marginRight: '1rem' }}>
+                        <Tab sx={{ marginRight: '1rem', backgroundColor : 'bg.default' }}>
                             <Typography display={'inline-block'} component={'img'} src={ethconnect} width={25} />
                             <Typography display={'inline-block'} component={'img'} src={Dogpadconnect} width={25} ml={-0.5} />
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
+                        <Tab sx={{ marginRight: '1rem',backgroundColor : 'bg.default' }}>
                             <Typography display={'inline-block'} component={'img'} src={ethconnect} width={25} />
                             <Typography display={'inline-block'} component={'img'} src={logo} width={25} ml={-0.5} />
                         </Tab>
 
-                        <Tab>
+                        <Tab sx={{backgroundColor : 'bg.default'}}>
                             <Typography display={'inline-block'} component={'img'} src={usdcIcon} width={25} />
                             <Typography display={'inline-block'} component={'img'} src={logo} width={25} ml={-0.5} />
                         </Tab>

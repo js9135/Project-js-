@@ -33,28 +33,28 @@ export default function TableOne() {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead sx={{ backgroundColor: '#151515', }}>
+                <TableHead sx={{ backgroundColor: 'disBtn.default', }}>
                     <TableRow>
-                        <TableCell sx={{color : '#fff',borderBottom : '1px solid rgb(224 218 224 / 55%)'}}>APR (%)</TableCell>
-                        <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 55%)'}} align="left"># Stakes</TableCell>
-                        <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 55%)'}} align="left">Avg YDF per stake/year</TableCell>
-                        <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 55%)'}} align="left">Avg USD per stake/year</TableCell>
-                        <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 55%)'}} align="left">Total USD per year</TableCell>
+                        <TableCell sx={{color : 'text.default',borderBottom : '1px solid #999'}}>APR (%)</TableCell>
+                        <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left"># Stakes</TableCell>
+                        <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">Avg YDF per stake/year</TableCell>
+                        <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">Avg USD per stake/year</TableCell>
+                        <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">Total USD per year</TableCell>
                     </TableRow>
                 </TableHead>
-                <TableBody sx={{backgroundColor : '#080808'}}>
+                <TableBody sx={{backgroundColor : 'gcolor.default'}}>
                     {rows.map((row) => (
                         <TableRow
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 15%)'}} component="th" scope="row">
+                            <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell sx={{color : '#fff',borderBottom : '1px solid rgb(224 218 224 / 15%)'}} align="left">{row.calories}</TableCell>
-                            <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 15%)'}} align="left">{row.fat}</TableCell>
-                            <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 15%)'}} align="left">{row.carbs}</TableCell>
-                            <TableCell sx={{color : '#fff', borderBottom : '1px solid rgb(224 218 224 / 15%)'}} align="left">{row.protein}</TableCell>
+                            <TableCell sx={{color : 'text.default',borderBottom : '1px solid #999'}} align="left">{row.calories}</TableCell>
+                            <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">{row.fat}</TableCell>
+                            <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">{row.carbs}</TableCell>
+                            <TableCell sx={{color : 'text.default', borderBottom : '1px solid #999'}} align="left">{row.protein}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

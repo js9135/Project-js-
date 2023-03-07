@@ -1,4 +1,4 @@
-import { Box, } from "@mui/material";
+import { Box, Grid, } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import PageTitle from "./PageTitle";
@@ -26,8 +26,18 @@ const useStyles = makeStyles({
         position: 'fixed',
         backgroundColor: '#000',
         top: 0,
-        width: '67.4%',
-        zIndex: '1000'
+        right: 0,
+        left: '28rem',
+        zIndex: '1000',
+        '@media(max-width : 1440px)': {
+            left: '25.5rem',
+            '@media(max-width : 1280px)': {
+                left: '22.5rem',
+                '@media(max-width : 1200px)': {
+                    left: '0rem'
+                }
+            }
+        }
     },
     headerList: {
         display: 'flex'
@@ -45,14 +55,18 @@ const useStyles = makeStyles({
 
 
 
-const Header = ({HeaderTitle}) => {
+const Header = ({ HeaderTitle }) => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.hdrBox}>
-                <PageTitle HeaderTitle={HeaderTitle} />
-                <Navbar />
-            </Box>
+            <Grid container spacing={0}>
+                <Grid item lg={12}>
+                    <Box className={classes.hdrBox} sx={{ backgroundColor: 'bg.default' }}>
+                        <PageTitle HeaderTitle={HeaderTitle} />
+                        <Navbar />
+                    </Box>
+                </Grid>
+            </Grid>
         </>
     )
 }

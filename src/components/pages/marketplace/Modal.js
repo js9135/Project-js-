@@ -36,7 +36,10 @@ const useStyles = makeStyles({
         padding: '1rem'
     },
     nftImage: {
-        width: '100px'
+        width: '100px',
+        '@media(max-width : 600px)':{
+            width : '50px'
+        }
     },
     topBoxM: {
         display: 'flex',
@@ -75,7 +78,7 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ff9e02',
             padding: '3px'
         },
 
@@ -102,7 +105,7 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ff9e02',
             padding: '3px'
         },
 
@@ -128,7 +131,10 @@ const useStyles = makeStyles({
     stakedPlaceBox: {
         padding: '1rem 8rem',
         border: '1px solid #ffa50033',
-        borderRadius: '0.5rem'
+        borderRadius: '0.5rem',
+        '@media(max-width : 600px)':{
+            padding: '1rem',
+        }
     },
     modalHding: {
         display: 'flex',
@@ -142,7 +148,10 @@ const useStyles = makeStyles({
     },
     enterBox: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media(max-width : 600px)':{
+            display : 'inherit'
+        }
     },
     enterBoxWrap: {
         backgroundColor: '#151515',
@@ -202,24 +211,24 @@ const Token = [
 
     {
         id: 1,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>ETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} >ETH</Typography></Box>,
     },
 
     {
         id: 2,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} color={'#fff'}>DAI</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} >DAI</Typography></Box>,
     },
     {
         id: 3,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} color={'#fff'}>USDC</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} >USDC</Typography></Box>,
     },
     {
         id: 4,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} color={'#fff'}>USDT</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} >USDT</Typography></Box>,
     },
     {
         id: 5,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>WETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} >WETH</Typography></Box>,
     },
 
 ];
@@ -279,9 +288,9 @@ const Modal = () => {
                     sx={{
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
-                            backgroundColor: '#000',
+                            backgroundColor: 'bg.default',
                             border: '1px solid #ffa500',
-                            color: '#fff'
+                            color: 'text.default'
                         }
                     }}
                     open={open}
@@ -294,7 +303,7 @@ const Modal = () => {
                     <DialogTitle id="scroll-dialog-title">
                         <Box className={classes.modalHding}>
                             <Typography variant="h6" fontWeight={700}>Make Offer</Typography>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
@@ -307,25 +316,25 @@ const Modal = () => {
                                         <Typography component={'img'} src={ohfimg} width={'100%'} />
                                     </Box>
                                     <Box className={classes.stakedMark}>
-                                        <Typography  ><Typography component={'span'} className={classes.sYDF} color={'#fff'}>sYDF</Typography>
-                                            <Typography component={'span'} color={'#fff'} fontWeight={700}> 150% APR</Typography>
+                                        <Typography  ><Typography component={'span'} className={classes.sYDF} >sYDF</Typography>
+                                            <Typography component={'span'}  fontWeight={700}> 150% APR</Typography>
                                         </Typography>
                                         <Box height={10} />
-                                        <Typography component={'a'} href={'#'} variant="h6" color={'#fff'} fontWeight={700}>Staked YDF #16</Typography>
+                                        <Typography component={'a'} href={'#'} variant="h6" color={'text.default'} fontWeight={700}>Staked YDF #16</Typography>
                                     </Box>
                                 </Box>
                             </Box>
 
-                            <Box className={classes.enterBoxWrap}>
+                            <Box className={classes.enterBoxWrap} sx={{backgroundColor : 'box2.default'}}>
                                 <Box className={classes.enterBox}>
-                                    <Typography color={'#fff'}>Enter
+                                    <Typography >Enter
                                         <Typography component={'span'}> USDC Amount</Typography>
                                     </Typography>
-                                    <Typography color={'#fff'}>USDC Balance: 0.0000 USDC ($0)</Typography>
+                                    <Typography sx={{'@media(max-width : 600px)':{marginTop : '1rem'}}}>USDC Balance: 0.0000 USDC ($0)</Typography>
                                 </Box>
 
-                                <Box className={classes.formCont}>
-                                    <Typography variant="h6" color={'#fff'} fontWeight={700} ml={2}>0</Typography>
+                                <Box className={classes.formCont} sx={{backgroundColor : 'bg.default'}}>
+                                    <Typography variant="h6"  fontWeight={700} ml={2}>0</Typography>
                                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
 
                                         <Select
@@ -334,7 +343,7 @@ const Modal = () => {
                                             
                                             sx={{
                                                 "& fieldset": { border: 'none', },
-                                                '& .MuiSvgIcon-root': { color: '#fff' },
+                                                '& .MuiSvgIcon-root': { color: 'text.default' },
 
 
 
@@ -372,26 +381,26 @@ const Modal = () => {
                             </Box>
 
                             <Box>
-                                <Typography mt={2} variant="h6" color={'#fff'}>Duration</Typography>
-                                <Box className={classes.duration}>
-                                    <Typography color={'#FCD349'}>Offer will expire February 24, 2023 16:44 PM</Typography>
+                                <Typography mt={2} variant="h6" >Duration</Typography>
+                                <Box className={classes.duration} sx={{backgroundColor : 'revenue.default'}}>
+                                    <Typography color={'revenuetext.default'}>Offer will expire February 24, 2023 16:44 PM</Typography>
                                 </Box>
                             </Box>
 
 
 
                             <Box>
-                                <Typography mt={2} variant="h6" color={'#fff'}>Earnings & Rewards</Typography>
-                                <Box className={classes.earningRewardBox}>
+                                <Typography mt={2} variant="h6" >Earnings & Rewards</Typography>
+                                <Box className={classes.earningRewardBox} sx={{backgroundColor : 'box2.default'}}>
                                     <Typography>Principal Amount</Typography>
                                     <Typography variant="h6" fontWeight={700}>6,969,000 YDF</Typography>
-                                    <Typography color={'#FCD349'}>$164,885</Typography>
+                                    <Typography color={'#fcb849'}>$164,885</Typography>
                                 </Box>
 
-                                <Box className={classes.earningRewardBox}>
+                                <Box className={classes.earningRewardBox} sx={{backgroundColor : 'box2.default'}}>
                                     <Typography>Earning Per Annum</Typography>
                                     <Typography variant="h6" fontWeight={700}>10,453,500 YDF</Typography>
-                                    <Typography color={'#FCD349'}>$247,328</Typography>
+                                    <Typography color={'#fcb849'}>$247,328</Typography>
                                 </Box>
                             </Box>
 

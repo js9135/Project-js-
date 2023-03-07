@@ -11,6 +11,15 @@ import { useAccount } from "wagmi";
 const useStyles = makeStyles({
     mainDiv: {
         margin: '1rem 12rem',
+        '@media(max-width : 1200px)':{
+            margin: '1rem 8rem',
+            '@media(max-width : 900px)':{
+                margin: '1rem 2rem',
+                '@media(max-width : 600px)':{
+                    margin: '1rem 0rem',
+                }
+            }
+        }
     },
     changePairBtn: {
         color: '#fff!important',
@@ -31,7 +40,10 @@ const useStyles = makeStyles({
         backgroundColor: '#151515',
         padding: '1rem 1.5rem',
         borderRadius: '0.5rem',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media(max-width : 600px)':{
+            padding: '1rem 0.5rem',
+        }
     },
     enterBoxWrap: {
         backgroundColor: '#151515',
@@ -45,7 +57,10 @@ const useStyles = makeStyles({
         backgroundColor: '#3f3f3f',
         borderRadius: '0.5rem 0.5rem 0rem 0rem',
         alignItems: 'center',
-        paddingRight: '0.5rem'
+        paddingRight: '0.5rem',
+        '@media(max-width : 600px)':{
+            display : 'inherit'
+        }
     },
     formCont: {
         display: 'flex',
@@ -71,7 +86,7 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ffc402',
             padding: '3px'
         },
 
@@ -119,7 +134,7 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ffc402',
             padding: '3px'
         },
 
@@ -138,11 +153,11 @@ const useStyles = makeStyles({
     },
     connectwalletbtn: {
         marginRight: '1rem !important',
-        backgroundColor: '#252525 !important',
         padding: '0.4rem 1rem !important',
         borderRadius: '3rem !important',
-        color: '#fff !important',
-        textTransform: 'none !important'
+        color: '#999 !important',
+        textTransform: 'none !important',
+        boxShadow : 'inherit !important'
     },
     CreateOTCBtn: {
         marginRight: '1rem !important',
@@ -162,24 +177,24 @@ const Token = [
 
     {
         id: 1,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>ETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'text.default'}>ETH</Typography></Box>,
     },
 
     {
         id: 2,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} color={'#fff'}>DAI</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={daiIcon} /><Typography ml={1} color={'text.default'}>DAI</Typography></Box>,
     },
     {
         id: 3,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} color={'#fff'}>USDC</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdcIcon} /><Typography ml={1} color={'text.default'}>USDC</Typography></Box>,
     },
     {
         id: 4,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} color={'#fff'}>USDT</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={usdtIcon} /><Typography ml={1} color={'text.default'}>USDT</Typography></Box>,
     },
     {
         id: 5,
-        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'#fff'}>WETH</Typography></Box>,
+        label: <Box sx={{ p: '5px 0px', display: 'flex', alignItems: 'center' }}><Typography component={"img"} src={eth} /><Typography ml={1} color={'text.default'}>WETH</Typography></Box>,
     },
 
 ];
@@ -222,34 +237,34 @@ const ChangePair = ({
     return (
         <>
             <Box className={classes.mainDiv}>
-                <Box className={classes.changePairMainWrap}>
+                <Box className={classes.changePairMainWrap} sx={{backgroundColor : 'disBtn.default'}}>
                     <Box><Typography className={classes.changePairHeading}>{PAIR_HEADING}</Typography></Box>
                     <Box>
                         <Button className={classes.changePairBtn} variant={'contained'}>Change Pair</Button>
                     </Box>
                 </Box>
 
-                <Box className={classes.enterBoxWrap}>
-                    <Box className={classes.enterBox}>
+                <Box className={classes.enterBoxWrap} sx={{backgroundColor : 'disBtn.default'}}>
+                    <Box className={classes.enterBox} sx={{backgroundColor : 'box2.default'}}>
                         <Typography className={classes.amountbg} fontSize={14} color={'#fff'}>Amount
                             <Typography fontSize={14} color={'#fff'} component={'span'}> {AMOUNT_TEXT}</Typography>
                         </Typography>
                         <Typography fontSize={13} color={'#999'}>Max you can swap:
-                            <Typography fontSize={14} color={'#fff'} component={'span'}> {SWAP}
+                            <Typography fontSize={14} color={'text.default'} component={'span'}> {SWAP}
                                 <Typography fontSize={14} color={'#ffa500'} component={'span'}> {SWAP_IN}</Typography>
                             </Typography>
                         </Typography>
                     </Box>
 
-                    <Box className={classes.formCont}>
-                        <Typography variant="h6" color={'#fff'} fontWeight={700} ml={2}>0</Typography>
+                    <Box className={classes.formCont} sx={{backgroundColor : 'bg.default'}}>
+                        <Typography variant="h6" color={'text.default'} fontWeight={700} ml={2}>0</Typography>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
 
                             <Select
 
                                 sx={{
                                     "& fieldset": { border: 'none', },
-                                    '& .MuiSvgIcon-root': { color: '#fff' },
+                                    '& .MuiSvgIcon-root': { color: 'text.default' },
 
 
 
@@ -271,7 +286,7 @@ const ChangePair = ({
                         </FormControl>
                     </Box>
 
-                    <Box className={classes.laverageSlider}>
+                    <Box className={classes.laverageSlider} sx={{backgroundColor : 'box2.default'}}>
                         <Slider
                             aria-label="Always visible"
                             defaultValue={0}
@@ -282,32 +297,32 @@ const ChangePair = ({
                             valueLabelDisplay="off"
                             className={classes.sliderRange2}
                         />
-                        <Typography color={'#fff'} ml={2}>{val}%</Typography>
+                        <Typography color={'text.default'} ml={2}>{val}%</Typography>
                     </Box>
                 </Box>
 
 
-                <Box className={classes.enterBoxWrap}>
-                    <Box className={classes.enterBox}>
+                <Box className={classes.enterBoxWrap} sx={{backgroundColor : 'disBtn.default'}}>
+                    <Box className={classes.enterBox} sx={{backgroundColor : 'box2.default'}}>
                         <Typography className={classes.amountbg2} fontSize={14} color={'#fff'}>Amount
                             <Typography fontSize={14} color={'#fff'} component={'span'}> {AMOUNT_TEXT_BOTTOM}</Typography>
                         </Typography>
                         <Typography fontSize={13} color={'#999'}>Amount left in this pool:
-                            <Typography fontSize={14} color={'#fff'} component={'span'}> {POOL}
+                            <Typography fontSize={14} color={'text.default'} component={'span'}> {POOL}
                                 <Typography fontSize={14} color={'#ffa500'} component={'span'}> {POOL_IN}</Typography>
                             </Typography>
                         </Typography>
                     </Box>
 
-                    <Box className={classes.formCont}>
-                        <Typography variant="h6" color={'#fff'} fontWeight={700} ml={2}>0</Typography>
+                    <Box className={classes.formCont} sx={{backgroundColor : 'bg.default'}}>
+                        <Typography variant="h6" color={'text.default'} fontWeight={700} ml={2}>0</Typography>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
 
                             <Select
 
                                 sx={{
                                     "& fieldset": { border: 'none', },
-                                    '& .MuiSvgIcon-root': { color: '#fff' },
+                                    '& .MuiSvgIcon-root': { color: 'text.default' },
 
 
 
@@ -329,7 +344,7 @@ const ChangePair = ({
                         </FormControl>
                     </Box>
 
-                    <Box className={classes.laverageSlider}>
+                    <Box className={classes.laverageSlider} sx={{backgroundColor : 'box2.default'}}>
                         <Slider
                             aria-label="Always visible"
                             defaultValue={0}
@@ -340,14 +355,14 @@ const ChangePair = ({
                             valueLabelDisplay="off"
                             className={classes.sliderRange2}
                         />
-                        <Typography color={'#fff'} ml={2}>{val}%</Typography>
+                        <Typography color={'text.default'} ml={2}>{val}%</Typography>
                     </Box>
                 </Box>
 
-                <List className={classes.addressList}>
+                <List className={classes.addressList} sx={{backgroundColor : 'disBtn.default'}}>
                     <ListItem className={classes.addressWrap}>
                         <Box>
-                            <Typography className={classes.addessFontSize} color={'#fff'}>Market comparison:</Typography>
+                            <Typography className={classes.addessFontSize} color={'text.default'}>Market comparison:</Typography>
                         </Box>
                         <Box>
                             <Typography color={'#FF494A'}>Market rate is currently better.</Typography>
@@ -356,12 +371,12 @@ const ChangePair = ({
 
                     <ListItem className={classes.addressWrap}>
                         <Box>
-                            <Typography className={classes.addessFontSize} color={'#fff'}>Exchange rate (toggle):</Typography>
+                            <Typography className={classes.addessFontSize} color={'text.default'}>Exchange rate (toggle):</Typography>
                         </Box>
                         <Box>
-                            <Typography fontSize={14} color={'#fff'} component={'span'}> {ER_ONE}
+                            <Typography fontSize={14} color={'text.default'} component={'span'}> {ER_ONE}
                                 <Typography fontSize={14} color={'#ffa500'} component={'span'}> {ER_TWO}
-                                    <Typography fontSize={14} color={'#fff'} component={'span'}> {ER_THREE}
+                                    <Typography fontSize={14} color={'text.default'} component={'span'}> {ER_THREE}
                                         <Typography fontSize={14} color={'#ffa500'} component={'span'}> {ER_FOUR}</Typography>
                                     </Typography>
                                 </Typography>
@@ -384,7 +399,7 @@ const ChangePair = ({
                 </List>
 
                 <Box mt={2}>
-                    {accountStatus.isConnected ? <Box><Button fullWidth className={classes.CreateOTCBtn} variant='contained'>Swap</Button></Box> : <Box><Button fullWidth className={classes.connectwalletbtn} variant='contained'>Connect Wallet</Button></Box>}
+                    {accountStatus.isConnected ? <Box><Button fullWidth className={classes.CreateOTCBtn} variant='contained'>Swap</Button></Box> : <Box><Button fullWidth className={classes.connectwalletbtn} sx={{backgroundColor : 'disBtn.default','&:hover':{backgroundColor : 'disBtn.default'}}} variant='contained'>Connect Wallet</Button></Box>}
                 </Box>
             </Box>
         </>

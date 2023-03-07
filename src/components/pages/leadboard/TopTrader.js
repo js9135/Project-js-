@@ -23,7 +23,7 @@ const rows = [
     createData(
         <Box textAlign={'center'} display={'inline-block'}>
             <Typography component={'img'} src={rank1} />
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography>Rank</Typography>
         </Box>,
 
 
@@ -31,13 +31,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -48,13 +48,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography fontSize={'13px'} >Trades</Typography>
+                <Typography fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -63,13 +63,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography fontSize={'13px'} >PNL</Typography>
+                <Typography fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -78,19 +78,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography fontSize={'13px'} >Volume</Typography>
+                <Typography fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'} display={'inline-block'}>
             <Typography component={'img'} src={rank2} />
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -98,13 +98,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -115,13 +115,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography fontSize={'13px'} >Trades</Typography>
+                <Typography color={'text.default'} fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -130,13 +130,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography fontSize={'13px'} >PNL</Typography>
+                <Typography fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -145,19 +145,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography fontSize={'13px'} >Volume</Typography>
+                <Typography fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'} display={'inline-block'}>
             <Typography component={'img'} src={rank3} />
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -165,13 +165,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -182,13 +182,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography fontSize={'13px'} >Trades</Typography>
+                <Typography fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -197,13 +197,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography fontSize={'13px'} >PNL</Typography>
+                <Typography fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -212,19 +212,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography fontSize={'13px'} >Volume</Typography>
+                <Typography fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'}>
-            <Typography color={'#fff'} variant="h5" fontWeight={700}>04</Typography>
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography variant="h5" fontWeight={700}>04</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -232,13 +232,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -249,13 +249,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography fontSize={'13px'} >Trades</Typography>
+                <Typography fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -264,13 +264,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography fontSize={'13px'} >PNL</Typography>
+                <Typography fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -279,19 +279,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography fontSize={'13px'} >Volume</Typography>
+                <Typography fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'}>
-            <Typography color={'#fff'} variant="h5" fontWeight={700}>05</Typography>
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography  variant="h5" fontWeight={700}>05</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -300,13 +300,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography  fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -317,13 +317,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography  fontSize={'13px'} >Trades</Typography>
+                <Typography  fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -332,13 +332,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography fontSize={'13px'} >PNL</Typography>
+                <Typography  fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -347,19 +347,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography  fontSize={'13px'} >Volume</Typography>
+                <Typography  fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'}>
-            <Typography color={'#fff'} variant="h5" fontWeight={700}>06</Typography>
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography  variant="h5" fontWeight={700}>06</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -368,13 +368,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography  fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -385,13 +385,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography  fontSize={'13px'} >Trades</Typography>
+                <Typography  fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -400,13 +400,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography  fontSize={'13px'} >PNL</Typography>
+                <Typography  fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -415,19 +415,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography  fontSize={'13px'} >Volume</Typography>
+                <Typography  fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'}>
-            <Typography color={'#fff'} variant="h5" fontWeight={700}>07</Typography>
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography  variant="h5" fontWeight={700}>07</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -436,13 +436,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography  fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -453,13 +453,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography  fontSize={'13px'} >Trades</Typography>
+                <Typography  fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -468,13 +468,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography  fontSize={'13px'} >PNL</Typography>
+                <Typography  fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -483,19 +483,19 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography  fontSize={'13px'} >Volume</Typography>
+                <Typography  fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
     createData(
         <Box textAlign={'center'}>
-            <Typography color={'#fff'} variant="h5" fontWeight={700}>08</Typography>
-            <Typography color={'#fff'}>Rank</Typography>
+            <Typography  variant="h5" fontWeight={700}>08</Typography>
+            <Typography >Rank</Typography>
         </Box>,
 
 
@@ -504,13 +504,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '0.8rem 1rem 0.5rem 1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mr: '2rem' }}>
                 <Box width={50}><Typography component={'img'} src={hundred} width={'100%'} /></Box>
-                <Typography color={'#fff'} fontWeight={700} ml={2}>0x5986...674A</Typography>
+                <Typography  fontWeight={700} ml={2}>0x5986...674A</Typography>
             </Box>
             <Box>
                 <Link to="https://etherscan.io/address/0x59869c3fA6CfCB305C8724c383874F14B0e1674A" target={'_blank'}><Typography component={'img'} src={etherscan} /></Link>
@@ -521,13 +521,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Trades</Typography>
-                <Typography color={'#fff'} fontWeight={700}>318</Typography>
+                <Typography  fontSize={'13px'} >Trades</Typography>
+                <Typography  fontWeight={700}>318</Typography>
             </Box>
         </Box>,
 
@@ -536,13 +536,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >PNL</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$334,812.89</Typography>
+                <Typography  fontSize={'13px'} >PNL</Typography>
+                <Typography  fontWeight={700}>$334,812.89</Typography>
             </Box>
         </Box>,
 
@@ -551,13 +551,13 @@ const rows = [
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#151515',
+            backgroundColor: 'box2.default',
             padding: '1rem',
             borderRadius: '0.5rem'
         }}>
             <Box sx={{ alignItems: 'center', mr: '2rem' }}>
-                <Typography color={'#fff'} fontSize={'13px'} >Volume</Typography>
-                <Typography color={'#fff'} fontWeight={700}>$43,281,906.25</Typography>
+                <Typography  fontSize={'13px'} >Volume</Typography>
+                <Typography  fontWeight={700}>$43,281,906.25</Typography>
             </Box>
         </Box>),
 
@@ -565,7 +565,7 @@ const rows = [
 
 export default function TopTrader() {
     return (
-        <TableContainer component={Paper} sx={{ borderRadius: '1rem', backgroundColor: '#080808' }}>
+        <TableContainer component={Paper} sx={{ borderRadius: '1rem', backgroundColor: 'disBtn.default' }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 {/* <TableHead sx={{ backgroundColor: '#151515', }}>
                     <TableRow>
@@ -582,13 +582,13 @@ export default function TopTrader() {
                             key={row.name}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell sx={{ color: '#fff', borderBottom: 'none' }} component="th" scope="row">
+                            <TableCell sx={{ color: 'text.default', borderBottom: 'none' }} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell sx={{ color: '#fff', borderBottom: 'none' }} align="left">{row.calories}</TableCell>
-                            <TableCell sx={{ color: '#fff', borderBottom: 'none' }} align="left">{row.fat}</TableCell>
-                            <TableCell sx={{ color: '#fff', borderBottom: 'none' }} align="left">{row.carbs}</TableCell>
-                            <TableCell sx={{ color: '#fff', borderBottom: 'none' }} align="left">{row.protein}</TableCell>
+                            <TableCell sx={{ color: 'text.default', borderBottom: 'none' }} align="left">{row.calories}</TableCell>
+                            <TableCell sx={{ color: 'text.default', borderBottom: 'none' }} align="left">{row.fat}</TableCell>
+                            <TableCell sx={{ color: 'text.default', borderBottom: 'none' }} align="left">{row.carbs}</TableCell>
+                            <TableCell sx={{ color: 'text.default', borderBottom: 'none' }} align="left">{row.protein}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

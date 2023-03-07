@@ -50,20 +50,18 @@ const useStyles = makeStyles({
         filter: 'invert(1)'
     },
     coinBtn: {
-        backgroundColor: '#000 !important',
-        color: '#fff !important',
+         
         borderRadius: '2rem !important',
         border: '1px solid #ffa500 !important',
         padding: '0.4rem 0.7rem !important',
         marginLeft: '1rem !important'
     },
     coinBtn2: {
-        backgroundColor: '#000 !important',
-        color: '#fff !important',
+        
         borderRadius: '2rem !important',
         padding: '0.4rem 0.7rem !important',
         marginLeft: '1rem !important',
-        border: '1px solid transparent !important',
+        border: '1px solid #ffa500 !important',
         '&:hover': {
             border: '1px solid #ffa500 !important',
         },
@@ -72,12 +70,11 @@ const useStyles = makeStyles({
         }
     },
     coinBtn3: {
-        backgroundColor: '#000 !important',
-        color: '#fff !important',
+       
         borderRadius: '2rem !important',
         padding: '0.4rem 0.6rem !important',
         marginLeft: '0.2rem !important',
-        border: '1px solid transparent !important',
+        border: '1px solid #ffa500 !important',
         '&:hover': {
             border: '1px solid #ffa500 !important',
         },
@@ -89,13 +86,20 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         borderBottom: '1px solid #ffa50080',
-        padding: '1.5rem 0rem'
+        padding: '1.5rem 0rem',
+        '@media(max-width : 1200px)': {
+            flexWrap: 'wrap',
+            gap : '10px'
+        }
     },
     tabBox: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid #ffa500'
+        borderBottom: '1px solid #ffa500',
+         '@media(max-width : 600px)':{
+            flexDirection : 'column-reverse'
+         }
     }
 })
 
@@ -107,14 +111,13 @@ const Tab = styled(TabUnstyled)`
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
-  background-color: #080808;
   padding: 0.4rem 1.2rem;
   margin: 6px 0px;
   border: none;
   border-radius: 3rem;
 
   &:hover {
-    background-color: #000;
+    background-color: bg.default;
   }
 
   &:focus {
@@ -123,7 +126,7 @@ const Tab = styled(TabUnstyled)`
   }
 
   &.${tabUnstyledClasses.selected} {
-    background-color: #000;
+    background-color: bg.default;
     outline: 3px solid #ffa500 ;
   }
 
@@ -153,38 +156,42 @@ export default function PerpetualTab() {
     const classes = useStyles();
     return (
 
-        <Box className={classes.mainBox}>
+        <Box className={classes.mainBox} sx={{backgroundColor : 'disBtn.default'}}>
             <TabsUnstyled defaultValue={0}>
                 <Box className={classes.tabBox}>
-                    <TabsList>
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>BTC</Typography>
+                    <TabsList sx={{
+                        '@media(max-width : 900px)': {
+                            flexWrap: 'wrap',
+                        }
+                    }}>
+                        <Tab sx={{ marginRight: '1rem', backgroundColor : 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>BTC</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>ETH</Typography>
+                        <Tab sx={{ marginRight: '1rem',backgroundColor : 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>ETH</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>Swap Index</Typography>
+                        <Tab sx={{ marginRight: '1rem',backgroundColor : 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>Swap Index</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>L1 Index</Typography>
+                        <Tab sx={{ marginRight: '1rem',backgroundColor : 'bg.default' }}>
+                            <Typography fontWeight={700} color="text.default">L1 Index</Typography>
                         </Tab>
 
-                        <Tab sx={{ marginRight: '1rem' }}>
-                            <Typography fontWeight={700}>Growth Tech Equities Index</Typography>
+                        <Tab sx={{ marginRight: '1rem',backgroundColor : 'bg.default' }}>
+                            <Typography fontWeight={700} color={'text.default'}>Growth Tech Equities Index</Typography>
                         </Tab>
 
                     </TabsList>
 
-                    <Typography color={'#fff'}>$22,152.31</Typography>
+                    <Typography sx={{'@media(max-width : 600px)':{marginBottom : '1rem'}}} color={'text.default'}>$22,152.31</Typography>
                 </Box>
                 <TabPanel value={0}>
                     <Box className={classes.coinBtnWrap}>
-                        <Typography color={'#fff'}>Assets:</Typography>
-                        <Button className={classes.coinBtn} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
+                        <Typography color={'text.default'}>Assets:</Typography>
+                        <Button className={classes.coinBtn} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
                             BTC / USD - $22,152.31
                         </Button>
                     </Box>
@@ -194,8 +201,8 @@ export default function PerpetualTab() {
 
                 <TabPanel value={1}>
                     <Box className={classes.coinBtnWrap}>
-                        <Typography color={'#fff'}>Assets:</Typography>
-                        <Button className={classes.coinBtn} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
+                        <Typography color={'text.default'}>Assets:</Typography>
+                        <Button className={classes.coinBtn} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
                             ETH / USD - $1,692.03
                         </Button>
                     </Box>
@@ -205,14 +212,14 @@ export default function PerpetualTab() {
 
                 <TabPanel value={2}>
                     <Box className={classes.coinBtnWrap}>
-                        <Typography color={'#fff'}>Assets:</Typography>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={cakeIcon} />}>
+                        <Typography color={'text.default'}>Assets:</Typography>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={cakeIcon} />}>
                             CAKE / USD - $4.29 - 20%
                         </Button>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={sushiIcon} />}>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={sushiIcon} />}>
                             SUSHI / USD - $1.42 - 40%
                         </Button>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={uniswapIcon} />}>
+                        <Button className={classes.coinBtn2} sx={{backgroundColor : 'bg.default', color : 'text.default'}}variant="outlined" startIcon={<Typography component={'img'} src={uniswapIcon} />}>
                             UNI / USD - $6.94 - 40%
                         </Button>
                     </Box>
@@ -223,17 +230,17 @@ export default function PerpetualTab() {
 
                 <TabPanel value={3}>
                     <Box className={classes.coinBtnWrap}>
-                        <Typography color={'#fff'}>Assets:</Typography>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
+                        <Typography color={'text.default'}>Assets:</Typography>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
                             BTC / USD - $22,152.31
                         </Button>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
                             ETH / USD - $1,692.03
                         </Button>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={solIcon} />}>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={solIcon} />}>
                             SOL / USD - $23.70 - 13%
                         </Button>
-                        <Button className={classes.coinBtn2} variant="outlined" startIcon={<Typography component={'img'} src={bnbIcon} />}>
+                        <Button className={classes.coinBtn2}sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={bnbIcon} />}>
                             BNB / USD - $322.72 - 13%
                         </Button>
                     </Box>
@@ -243,17 +250,17 @@ export default function PerpetualTab() {
 
                 <TabPanel value={4}>
                     <Box className={classes.coinBtnWrap}>
-                        <Typography color={'#fff'}>Assets:</Typography>
-                        <Button className={classes.coinBtn3} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
+                        <Typography color={'text.default'}>Assets:</Typography>
+                        <Button className={classes.coinBtn3} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={btcicon} />}>
                             AAPL / USD - $154.73 - 25%
                         </Button>
-                        <Button className={classes.coinBtn3} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
+                        <Button className={classes.coinBtn3} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={ethIcon} />}>
                             AMZN / USD - $100.68 - 25%
                         </Button>
-                        <Button className={classes.coinBtn3} variant="outlined" startIcon={<Typography component={'img'} src={solIcon} />}>
+                        <Button className={classes.coinBtn3} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={solIcon} />}>
                             MSFT / USD - $268.69 - 25%
                         </Button>
-                        <Button className={classes.coinBtn3} variant="outlined" startIcon={<Typography component={'img'} src={bnbIcon} />}>
+                        <Button className={classes.coinBtn3} sx={{backgroundColor : 'bg.default', color : 'text.default'}} variant="outlined" startIcon={<Typography component={'img'} src={bnbIcon} />}>
                             NFLX / USD - $361.09 - 25%
                         </Button>
                     </Box>

@@ -11,6 +11,9 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width  : 1200px)':{
+            overflowY : 'inherit'
+                    },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -25,10 +28,19 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         paddingBottom: '1rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto'
+        }
     },
     boxMain: {
-        padding: '5rem 1.5rem 2rem 1.5rem'
+        padding: '5rem 1.5rem 2rem 1.5rem',
+        '@media(max-width : 1200px)': {
+            padding: '2rem 1.5rem 2rem 1.5rem',
+            '@media(max-width : 600px)': {
+                padding: '2rem 0.5rem 2rem 0.5rem',
+            }
+        }
     },
 
     statsBox: {
@@ -50,8 +62,10 @@ const OtcCMP = () => {
 
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{ backgroundColor: 'bg.default' }}>
                     <Header HeaderTitle="OTC" />
                     <Box className={classes.boxMain}>
                         <Info />

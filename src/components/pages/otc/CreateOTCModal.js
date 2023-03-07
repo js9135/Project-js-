@@ -37,7 +37,10 @@ const useStyles = makeStyles({
 
     packagePoolBtnWrap: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media(max-width : 600px)': {
+            display: 'inherit'
+        }
     }
 
 
@@ -84,9 +87,9 @@ const CreateOTCModal = () => {
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
                             width: '520px',
-                            backgroundColor: '#000',
+                            backgroundColor: 'bg.default',
                             border: '1px solid #ffa500',
-                            color: '#fff'
+                            color: 'text.default'
                         }
                     }}
                     open={open}
@@ -99,7 +102,7 @@ const CreateOTCModal = () => {
                     <DialogTitle id="scroll-dialog-title">
                         <Box className={classes.modalHding}>
                             <Typography variant="h6" fontWeight={700}>Select OTC type to create</Typography>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
@@ -108,9 +111,9 @@ const CreateOTCModal = () => {
 
 
                             <Box className={classes.packagePoolBtnWrap}>
-                                 <PackageModal/>
+                                <PackageModal />
                                 <Box width={100} />
-                                 <PoolModal/>
+                                <PoolModal />
                             </Box>
 
 

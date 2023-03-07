@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     root: {
         overflowY: 'scroll',
         minHeight: '100vh',
+        '@media(max-width  : 1200px)':{
+            overflowY : 'inherit'
+                    },
         "&::-webkit-scrollbar": {
             width: '4px',
         },
@@ -27,10 +30,16 @@ const useStyles = makeStyles({
     mainDiv: {
         backgroundColor: '#000',
         paddingBottom: '1rem',
-        height: '80vh'
+        height: '80vh',
+        '@media(max-width : 1200px)': {
+            height: 'auto'
+        }
     },
     boxMain: {
-        padding: '5rem 1.5rem 2rem 1.5rem'
+        padding: '5rem 1.5rem 2rem 1.5rem',
+        '@media(max-width : 1200px)': {
+            padding: '2rem 1.5rem 2rem 1.5rem',
+        }
     },
     switchbtn: {
         background: 'linear-gradient(45deg, #ffa500 10%, #ff8e53 90%)',
@@ -100,7 +109,7 @@ const useStyles = makeStyles({
         marginTop: '1.5rem'
     },
     bridgeHistoryBox: {
-        border: '1px solid #fffd0263',
+        border: '1px solid #ffba0263',
         padding: '2rem',
         borderRadius: '0.6rem',
         marginTop: '1rem',
@@ -179,26 +188,28 @@ const PerpetualCMP = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.root}>
-                <Box className={classes.mainDiv}>
+            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
+            backgroundColor: 'Sliderroot.default',
+        },}}>
+                <Box className={classes.mainDiv} sx={{backgroundColor : 'bg.default'}}>
                     <Header HeaderTitle="Perpetual Futures Trading" />
-                    <Box className={classes.boxMain}>
+                    <Box className={classes.boxMain} >
                         <Info />
 
                         <PerpetualTab />
 
-                        <Box className={classes.bridgeHistoryWrap}>
-                             
-                                <PositionTab/>
-                                
-                             
+                        <Box className={classes.bridgeHistoryWrap} >
+
+                            <PositionTab />
+
+
 
                             <Box className={classes.bridgeHistoryBox}>
                                 <Box className={classes.emptyBox}>
                                     <Typography component={'img'} src={empty} width={'100%'} />
                                 </Box>
                                 <Box height={20} />
-                                <Typography variant="h6" color={'#fff'}>No Positions Found</Typography>
+                                <Typography variant="h6" color={'text.default'}>No Positions Found</Typography>
 
                                 <Box height={15} />
                                 <Typography color={'#999'}>You have no positions yet!</Typography>

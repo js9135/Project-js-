@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
 import BTC from '../assets/images/BTC.png'
+import BTCw from '../assets/images/BTCw.png'
 import { Link } from "react-router-dom";
 import CenterBarTab from "./CenterBarTab";
- 
+import { ColorModeContext } from "../../store/Index";
 
 
 const useStyles = makeStyles({
@@ -12,9 +13,8 @@ const useStyles = makeStyles({
         display: 'inline-block',
         width: '100%',
         textAlign: 'center',
-        backgroundColor: '#000',
         padding: '2rem 0rem 2rem 0rem',
-        border: '2px solid #ffffff17',
+        border: '2px solid #4e4e4e',
         borderRadius: '1rem',
         marginTop: '1rem',
         textDecoration: 'none',
@@ -47,18 +47,20 @@ const useStyles = makeStyles({
 const OpenPosition = () => {
     const [isShown, setIsShown] = useState(false);
     const classes = useStyles();
+
+    const { mode, toggleMode } = useContext(ColorModeContext)
     return (
         <>
 
             <Box>
-                <Typography color={'#fff'} variant="h6">Open Position</Typography>
+                <Typography color={'text.default'} variant="h6">Open Position</Typography>
             </Box>
 
-            <Link className={classes.BTCBox}
+            <Link className={classes.BTCBox} sx={{backgroundColor : 'bg.default'}}
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}
             >
-                <Typography className={classes.coinImg} display={'inline-block'} component={'img'} src={BTC} />
+                {mode === 'dark' ?<Typography className={classes.coinImg} display={'inline-block'} component={'img'} src={BTC} /> :<Typography className={classes.coinImg} display={'inline-block'} component={'img'} src={BTCw} />}
                 {isShown && (
                     <Box className={classes.assetIndex}>
                         <Typography color={'#000'}>Change Position Asset/Index</Typography>
@@ -68,7 +70,7 @@ const OpenPosition = () => {
 
             <Box>
                 <Box mt={2}>
-                    <Typography color={'#fff'} variant="h6">Type</Typography>
+                    <Typography color={'text.default'} variant="h6">Type</Typography>
                 </Box>
                 <CenterBarTab />
             </Box>

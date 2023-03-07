@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, } from "react";
 import { makeStyles } from "@mui/styles";
-import { Box, Button, Tooltip, Typography } from "@mui/material";
+import { Box, Button, List, Tooltip, Typography } from "@mui/material";
 import HelpIcon from '@mui/icons-material/Help';
-import { useAccount, useEnsAddress } from 'wagmi'
+import { useAccount, useBalance, useEnsAddress } from 'wagmi'
 import ReferralModal from "./ReferralModal";
-
+import ethstroke from '../assets/images/ethstroke.svg'
+import ethstrokeb from '../assets/images/ethstrokeb.svg'
+import logo from '../assets/images/logo.png'
+import walletIcon from '../assets/images/walletIcon.svg'
+import walletIconb from '../assets/images/walletIconb.svg'
+import { ColorModeContext } from "../../store/Index";
 
 const useStyles = makeStyles({
 
@@ -64,7 +69,19 @@ const useStyles = makeStyles({
     stakebtnBox: {
         textAlign: 'center',
         paddingBottom: '2rem'
-    }
+    },
+    headerList: {
+        display: 'none',
+        '@media(max-width : 900px)': {
+            display: 'block'
+        }
+    },
+
+    btn: {
+        border: '1px solid #8e8e8eb3 !important',
+        padding: '0.5rem 1rem !important',
+        borderRadius: '3rem !important'
+    },
 })
 
 
@@ -75,34 +92,69 @@ const Portfolio = () => {
     const accountStatus = useAccount()
 
 
+    const { data } = useBalance({
+        address: `${accountStatus.address}`
+    })
 
-
-
+    const { mode, toggleMode } = useContext(ColorModeContext)
     return (
         <>
 
             <Box>
 
-                {accountStatus.isConnected ? <Typography color={'#fff'} variant="h6">Welcome,{accountStatus.address.substring(0, 5) + "...." + accountStatus.address.substring(accountStatus.address.length - 4)}</Typography>
+                {accountStatus.isConnected ? <Typography color={'text.default'} variant="h6">Welcome,{accountStatus.address.substring(0, 5) + "...." + accountStatus.address.substring(accountStatus.address.length - 4)}</Typography>
                     :
-                    <Typography color={'#fff'} variant="h6">Welcome, ...</Typography>
+                    <Typography color={'text.default'} variant="h6">Welcome, ...</Typography>
                 }
             </Box>
 
-            <Box className={classes.portfolio}>
+            <List className={classes.headerList}>
+                <Box className={classes.listitem}>
+                    <Button className={classes.btn} fullWidth sx={{ color: 'text.default', }} variant="outlined" startIcon={<Typography component={'img'} src={logo} width={20} />}>
+                        $0.0286
+                    </Button>
+                </Box>
+
+                <Box height={20} />
+
+                <Box className={classes.listitem}>
+                    <Button className={classes.btn} fullWidth sx={{ color: 'text.default', }} variant="outlined" startIcon={<Typography component={'img'} src={`${mode === 'dark' ? ethstroke : ethstrokeb}`} width={24} />}>
+                        {accountStatus.isConnected ? <Typography>${data?.formatted} {data?.symbol}</Typography> : <Typography color={'text.default'}>$0.00</Typography>}
+                    </Button>
+
+                </Box>
+
+                <Box height={20} />
+
+                {accountStatus.isConnected ?
+                    <Box className={classes.listitem}>
+                        <Button fullWidth sx={{ color: 'text.default', }} href={`https://bscscan.com/address/${accountStatus.address.substring(0, 5) + "...." + accountStatus.address.substring(accountStatus.address.length - 4)}`} target={'_blank'} className={classes.btn} variant="outlined" startIcon={<Typography component={'img'} src={`${mode === 'dark' ? walletIcon : walletIconb}`} width={24} />}>
+                            {accountStatus.isConnected && `${accountStatus.address.substring(0, 5) + "...." + accountStatus.address.substring(accountStatus.address.length - 4)}`}
+
+                        </Button>
+                    </Box>
+                    :
+                    null
+                }
+
+
+
+            </List>
+
+            <Box className={classes.portfolio} sx={{ backgroundColor: 'disBtn.default' }}>
                 <Box className={classes.portMainBox}>
-                    <Typography color={'#fff'}>My Portfolio</Typography>
+                    <Typography color={'text.default'}>My Portfolio</Typography>
                     <Tooltip title="Includes both YDF in your wallet and the aggregate value you currently have staked." placement="bottom">
                         <Box><HelpIcon className={classes.helpBox} /></Box>
                     </Tooltip>
                 </Box>
 
                 <Box className={classes.dollar}>
-                    <Typography variant="h3" fontSize={'2rem'} fontWeight={700} color={'#fff'}>$0</Typography>
+                    <Typography variant="h3" fontSize={'2rem'} fontWeight={700} color={'text.default'}>$0</Typography>
                 </Box>
 
                 <Box className={classes.para}>
-                    <Typography color={'#fff'}>0 YDF</Typography>
+                    <Typography color={'text.default'}>0 YDF</Typography>
                 </Box>
 
 

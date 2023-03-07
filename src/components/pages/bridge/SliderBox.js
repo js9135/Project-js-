@@ -13,14 +13,13 @@ const useStyles = makeStyles({
         },
 
         '& .MuiSlider-rail': {
-            color: '#fffd02',
+            color: '#ffba02',
         },
 
         '& .MuiSlider-thumb': {
             color: '#fffd02',
         },
         '& .MuiSlider-markLabel': {
-            color: '#fff',
             marginTop: '-3rem',
             transform: 'translateX(-125%)',
             marginLeft: '6px'
@@ -67,9 +66,9 @@ const SliderBox = () => {
     const classes = useStyles();
     return (
         <>
-            <Box className={classes.sliderRangeWrap}>
+            <Box className={classes.sliderRangeWrap} sx={{backgroundColor : 'bg.default'}}>
                 <Box className={classes.enterAmountBox}>
-                    <Typography color={'#fff'}>Enter YDF Amount</Typography>
+                    <Typography color={'text.default'}>Enter YDF Amount</Typography>
                     <Link className={classes.buyYDFbtn} to="#">Buy YDF</Link>
                 </Box>
                 <Box>
@@ -81,6 +80,9 @@ const SliderBox = () => {
                         marks={marks}
                         valueLabelDisplay="on"
                         className={classes.sliderRange}
+                        sx={{'& .MuiSlider-markLabel': {
+                           color : 'text.default'
+                        },}}
                     />
                 </Box>
             </Box>

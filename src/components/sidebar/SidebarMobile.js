@@ -11,45 +11,29 @@ import StreamIcon from '@mui/icons-material/Stream';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import StoreIcon from '@mui/icons-material/Store';
 import SummarizeIcon from '@mui/icons-material/Summarize';
-import logo from '../assets/images/logo.png'
+
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { ColorModeContext } from "../../store/Index";
 
-
 const useStyles = makeStyles({
-    root: {
-        overflowY: 'scroll',
-        minHeight: '100vh',
 
-        "&::-webkit-scrollbar": {
-            width: '4px',
-        },
-        "&::-webkit-scrollbar-track": {
-            backgroundColor: 'Sliderroot.default',
-        },
-        "&::-webkit-scrollbar-thumb": {
-            borderRadius: '10px',
-            background: '-webkit-linear-gradient(45deg, #f97d25, #f9e025 80%)',
-        },
-    },
 
 
     mainDiv: {
         backgroundColor: '#000',
-        height: '80vh',
-        '@media(max-width : 1200px)': {
-            marginTop: '5rem',
+        height: 'auto',
+        '@media(max-width : 900px)': {
+            marginTop: '0rem'
         }
 
     },
     listitem: {
-       display : 'inherit !important',
-        padding: '0rem !important',
+        display: 'inherit !important',
+        padding: '1rem 0rem 1rem 1rem !important',
         cursor: 'pointer',
         transition: '0.5s',
-        textAlign : 'center'
     },
     iconWidth: {
         width: '2rem !important',
@@ -58,19 +42,14 @@ const useStyles = makeStyles({
     lightMode: {
         color: '#ffa500'
     },
-    logoBox: {
-        width: '36px',
-        display: 'inline-block',
-        padding: '1rem 0.7rem',
-        marginBottom: '1.5rem',
-        '@media(max-width : 1200px)': {
-            padding: '1rem 1.4rem',
-            marginBottom: '0.5rem',
-        }
+
+    iconText: {
+        display: 'flex',
+        alignItems: 'center'
     }
 })
 
-const Sidebar = () => {
+const SidebarMobile = () => {
 
     const { mode, toggleMode } = useContext(ColorModeContext)
 
@@ -81,87 +60,115 @@ const Sidebar = () => {
         return {
             color: isActive ? '#ffa500' : `${mode === 'dark' ? '#fff' : '#000'}`,
             transition: '0.5s',
-            display : 'block',
-            padding: '1.2rem 0rem',
             fontSize: '30px',
-            textAlign : 'center'
+            textDecoration: 'none'
         }
     }
     return (
         <>
-            <Box className={classes.root} sx={{"&::-webkit-scrollbar-track": {
-            backgroundColor: 'Sliderroot.default',
-        },}}>
+            <Box className={classes.root}>
                 <Box className={classes.mainDiv} sx={{ backgroundColor: 'bg.default' }}>
                     <List>
 
-                        <Link className={classes.logoBox} to="/">
-                            <Typography component={'img'} src={logo} width='100%' />
-                        </Link>
+
 
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/">
-                                <DashboardIcon className={classes.iconWidth} />
-
+                                <Box className={classes.iconText}>
+                                    <DashboardIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Dashboard</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/bridge">
-                                <SwapHorizontalCircleIcon className={classes.iconWidth} />
+                                <Box className={classes.iconText}>
+                                    <SwapHorizontalCircleIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Bridge</Typography>
+                                </Box>
+
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/stake">
-                                <LayersIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <LayersIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Stake!</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/nft">
-                                <PhotoLibraryIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <PhotoLibraryIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>NFT</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/vesting">
-                                <AgricultureIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <AgricultureIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Vesting</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/perpetual">
-                                <StreamIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <StreamIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Perpetual</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/leadboard">
-                                <LeaderboardIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <LeaderboardIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Leadboard</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/marketplace">
-                                <StoreIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <StoreIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>Marketplace</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
                         <ListItem className={classes.listitem} sx={{ '&:hover': { backgroundColor: 'hbg.default' } }}>
                             <NavLink style={navLinkStyles} to="/otc/eth">
-                                <SummarizeIcon className={classes.iconWidth} />
+
+                                <Box className={classes.iconText}>
+                                    <SummarizeIcon className={classes.iconWidth} />
+                                    <Typography ml={1}>OTC</Typography>
+                                </Box>
                             </NavLink>
                         </ListItem>
 
 
 
                         <Box sx={{
-                            padding: '0.6rem',
-                            '@media(max-width : 1200px)': {
-                                padding: '1rem 1.4rem',
-                            }
+
+
+                            padding: '0.5rem 0.6rem',
+
                         }}>
                             <IconButton sx={{ alignSelf: 'center' }} onClick={toggleMode} color="inherit">
                                 {mode === 'dark' ? <Brightness7Icon sx={{ color: 'yellow' }} /> : <Brightness4Icon sx={{ color: '#ffa500' }} />}
@@ -175,4 +182,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default SidebarMobile;

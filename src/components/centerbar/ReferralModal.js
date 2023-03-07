@@ -67,18 +67,20 @@ const useStyles = makeStyles({
         borderRadius: '0.5rem',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media(max-width : 600px)':{
+            display : 'inherit'
+        }
     },
     claimBtn: {
-        backgroundColor: '#151515 !important',
-        color: '#ffffff73 !important',
+   
+        color: '#999 !important',
         borderRadius: '2rem !important',
         marginTop: '0.5rem !important',
         textTransform: 'none !important'
     },
     saveBtn: {
-        backgroundColor: '#151515 !important',
-        color: '#fff !important',
+        boxShadow: 'inherit !important',
         borderRadius: '0.3rem !important',
         marginTop: '0.rem !important',
         textTransform: 'none !important'
@@ -127,9 +129,9 @@ const ReferralModal = () => {
                     sx={{
                         backgroundColor: '#0000003b',
                         '& .MuiPaper-root': {
-                            backgroundColor: '#000',
+                            backgroundColor: 'disBtn.default',
                             border: '1px solid #ffa500',
-                            color: '#fff',
+                            color: 'text.default',
                             width: '600px'
                         }
                     }}
@@ -146,7 +148,7 @@ const ReferralModal = () => {
                                 <MilitaryTechIcon />
                                 <Typography variant="h6" ml={1} fontWeight={700}>My Rewards</Typography>
                             </Box>
-                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: '#fff' }} /></IconButton>
+                            <IconButton onClick={handleClose}><ClearIcon sx={{ color: 'text.default' }} /></IconButton>
                         </Box>
                     </DialogTitle>
 
@@ -156,18 +158,18 @@ const ReferralModal = () => {
                             <Box>
                                 <Grid container spacing={2}>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
-                                        <Box className={classes.rewardBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Your Overall Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>0.0000 ETH</Typography>
+                                        <Box className={classes.rewardBox} >
+                                            <Typography  fontSize={13}>Your Overall Rewards</Typography>
+                                            <Typography  variant={'h6'} fontWeight={700}>0.0000 ETH</Typography>
                                             <Typography color={'#fca300'}>$0</Typography>
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
                                         <Box className={classes.referralBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Your Overall Referral Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>0 YDF</Typography>
+                                            <Typography  fontSize={13}>Your Overall Referral Rewards</Typography>
+                                            <Typography  variant={'h6'} fontWeight={700}>0 YDF</Typography>
                                             <Typography color={'#fca300'}>$0</Typography>
-                                            <Typography color={'#fff'} fontSize={13} fontStyle={'italic'}>Can sync again at Feb 24, 2023 10:27</Typography>
+                                            <Typography  fontSize={13} fontStyle={'italic'}>Can sync again at Feb 24, 2023 10:27</Typography>
                                         </Box>
                                     </Grid>
                                 </Grid>
@@ -176,16 +178,16 @@ const ReferralModal = () => {
                             <Box mt={2}>
                                 <Grid container spacing={2}>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
-                                        <Box className={classes.DBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Total Aggregate Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>327.4781 ETH</Typography>
+                                        <Box className={classes.DBox} sx={{backgroundColor : 'bg.default'}}>
+                                            <Typography  fontSize={13}>Total Aggregate Rewards</Typography>
+                                            <Typography variant={'h6'} fontWeight={700}>327.4781 ETH</Typography>
                                             <Typography color={'#fca300'}>$546,207</Typography>
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
-                                        <Box className={classes.DBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Total Aggregate Referral Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>2,697 YDF</Typography>
+                                        <Box className={classes.DBox} sx={{backgroundColor : 'bg.default'}}>
+                                            <Typography  fontSize={13}>Total Aggregate Referral Rewards</Typography>
+                                            <Typography  variant={'h6'} fontWeight={700}>2,697 YDF</Typography>
                                             <Typography color={'#fca300'}>$52</Typography>
                                         </Box>
                                     </Grid>
@@ -195,19 +197,19 @@ const ReferralModal = () => {
                             <Box mt={2}>
                                 <Grid container spacing={2}>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
-                                        <Box className={classes.DBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Unclaimed Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>0.0000 ETH</Typography>
+                                        <Box className={classes.DBox} sx={{backgroundColor : 'bg.default'}}>
+                                            <Typography  fontSize={13}>Unclaimed Rewards</Typography>
+                                            <Typography  variant={'h6'} fontWeight={700}>0.0000 ETH</Typography>
                                             <Typography color={'#fca300'}>$0</Typography>
-                                            <Button className={classes.claimBtn} fullWidth variant="contained">No ETH Rewards to Claim</Button>
+                                            <Button className={classes.claimBtn} sx={{backgroundColor : 'disBtn.default','&:hover':{backgroundColor : 'disBtn.default'}}} fullWidth variant="contained">No ETH Rewards to Claim</Button>
                                         </Box>
                                     </Grid>
                                     <Grid item lg={6} md={6} sm={12} xs={12}>
-                                        <Box className={classes.DBox}>
-                                            <Typography color={'#fff'} fontSize={13}>Unclaimed Referral Rewards</Typography>
-                                            <Typography color={'#fff'} variant={'h6'} fontWeight={700}>0 YDF</Typography>
+                                        <Box className={classes.DBox} sx={{backgroundColor : 'bg.default'}}>
+                                            <Typography  fontSize={13}>Unclaimed Referral Rewards</Typography>
+                                            <Typography  variant={'h6'} fontWeight={700}>0 YDF</Typography>
                                             <Typography color={'#fca300'}>$0</Typography>
-                                            <Button className={classes.claimBtn} fullWidth variant="contained">Only Claimable on Arbitrum</Button>
+                                            <Button className={classes.claimBtn} sx={{backgroundColor : 'disBtn.default','&:hover':{backgroundColor : 'disBtn.default'}}} fullWidth variant="contained">Only Claimable on Arbitrum</Button>
                                         </Box>
                                     </Grid>
                                 </Grid>
@@ -216,26 +218,26 @@ const ReferralModal = () => {
                             <Box>
                                 <Typography mt={2} mb={1} variant="h6" fontWeight={700}>Refer Your Friends</Typography>
 
-                                <Box className={classes.DBox2}>
+                                <Box className={classes.DBox2} sx={{backgroundColor : 'bg.default'}}>
                                     <Box>
-                                        <Typography color={'#fff'} fontSize={13}>Referral Code</Typography>
-                                        <Typography color={'#fff'} fontSize={13} >
+                                        <Typography  fontSize={13}>Referral Code</Typography>
+                                        <Typography  fontSize={13} >
                                             {addressValue}
                                         </Typography>
                                     </Box>
 
-                                    <Box sx={{ display: 'flex' }}>
+                                    <Box sx={{ display: 'flex','@media(max-width : 600px)':{marginTop : '0.5rem'} }}>
                                         <Box>
-                                            <Button className={classes.saveBtn} variant="contained">Save</Button>
+                                            <Button className={classes.saveBtn} sx={{backgroundColor : 'box2.default', color : 'text.default','&:hover':{backgroundColor : 'box2.default'}}} variant="contained">Save</Button>
                                         </Box>
                                         <Box ml={1}>
                                             {
-                                                copied ? <Button className={classes.saveBtn} startIcon={<ContentCopyIcon />} >
+                                                copied ? <Button className={classes.saveBtn} sx={{backgroundColor : 'box2.default', color : 'text.default','&:hover':{backgroundColor : 'box2.default'}}} startIcon={<ContentCopyIcon />} >
                                                     Copied!
                                                 </Button>
                                                     :
                                                     <CopyToClipboard text={addressValue} onCopy={() => setCopied(true)}>
-                                                        <Button className={classes.saveBtn} startIcon={<ContentCopyIcon />}>
+                                                        <Button className={classes.saveBtn} sx={{backgroundColor : 'box2.default', color : 'text.default','&:hover':{backgroundColor : 'box2.default'}}} startIcon={<ContentCopyIcon />}>
                                                             Copy
                                                         </Button>
                                                     </CopyToClipboard>
@@ -245,24 +247,24 @@ const ReferralModal = () => {
                                 </Box>
 
 
-                                <Box className={classes.DBox2} mt={2}>
+                                <Box className={classes.DBox2} sx={{backgroundColor : 'bg.default'}} mt={2}>
                                     <Box>
-                                        <Typography color={'#fff'} fontSize={13}>Referral Link</Typography>
-                                        <Typography color={'#fff'} fontSize={13} >
+                                        <Typography  fontSize={13}>Referral Link</Typography>
+                                        <Typography  fontSize={13} >
                                             {addressValueLink}
                                         </Typography>
                                     </Box>
 
-                                    <Box sx={{ display: 'flex' }}>
+                                    <Box sx={{ display: 'flex','@media(max-width : 600px)':{marginTop : '0.5rem'} }}>
 
                                         <Box ml={1}>
                                             {
-                                                copiedLink ? <Button className={classes.saveBtn} startIcon={<ContentCopyIcon />} >
+                                                copiedLink ? <Button className={classes.saveBtn} sx={{backgroundColor : 'box2.default', color : 'text.default','&:hover':{backgroundColor : 'box2.default'}}}  startIcon={<ContentCopyIcon />} >
                                                     Copied!
                                                 </Button>
                                                     :
                                                     <CopyToClipboard text={addressValueLink} onCopy={() => setCopiedLink(true)}>
-                                                        <Button className={classes.saveBtn} startIcon={<ContentCopyIcon />}>
+                                                        <Button className={classes.saveBtn} sx={{backgroundColor : 'box2.default', color : 'text.default','&:hover':{backgroundColor : 'box2.default'}}} startIcon={<ContentCopyIcon />}>
                                                             Copy
                                                         </Button>
                                                     </CopyToClipboard>
